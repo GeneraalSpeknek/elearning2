@@ -19,8 +19,9 @@ namespace elearning2
     /// </summary>
     public partial class ConsulentenKeuzeMenu : Window
     {
+        
         VakWijzigen VakWijzigenForm = new VakWijzigen();
-        public string WhichButton = "";
+      //  public string WhichButton = "hoi";
         public ConsulentenKeuzeMenu()
         {
             InitializeComponent();
@@ -29,21 +30,21 @@ namespace elearning2
         private void btAddVak_Click(object sender, RoutedEventArgs e)
         {
       
-            WhichButton = "addvak";
+           // WhichButton = "addvak";
             this.Close();
             VakWijzigenForm.Show();
         }
 
         private void btChangeVak_Click(object sender, RoutedEventArgs e)
         {
-            WhichButton = "changevak";
+           // WhichButton = "changevak";
             this.Close();
             VakWijzigenForm.Show();
         }
 
         private void btDeleteVak_Click(object sender, RoutedEventArgs e)
         {
-            WhichButton = "deletevak";
+          //  WhichButton = "deletevak";
             this.Close();
             VakWijzigenForm.Show();
         }

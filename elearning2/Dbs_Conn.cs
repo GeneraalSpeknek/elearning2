@@ -35,5 +35,17 @@ namespace elearning2
             cnn.Close();
             return dtRolChecker;
         }
+
+        public DataTable GetVakken()
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM vak", cnn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            DataTable tbl = new DataTable();
+            tbl.Load(rdr);
+            cnn.Close();
+            return tbl;
+        }
     }
 }

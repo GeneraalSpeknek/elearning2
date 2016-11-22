@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="Vak wijzigen" Height="300" Width="521.008">
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="192">
+        <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="192">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding VakNaam}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <Label x:Name="label" Content="Label" Height="100" Width="100"/>
         </ListBox>
         <Button x:Name="btDelete" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="428,239,0,0"/>
 
