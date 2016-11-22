@@ -56,11 +56,14 @@ namespace elearning2
 
                 if (RolID == "consulent")
                 {
-                    MessageBox.Show("Ingelogd als consulent!");
+                    ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
+                    this.Close();
+                    CKM.Show();
                 }
                 if (RolID == "leerling")
                 {
                     MessageBox.Show("Ingelogd als leerling!");
+                    
                 }
 
             }
