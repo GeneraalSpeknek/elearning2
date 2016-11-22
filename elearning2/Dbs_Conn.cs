@@ -23,5 +23,17 @@ namespace elearning2
             cnn.Close();
             return dtLoginCheck;
         }
+
+        public DataTable RolChecker(string usrname)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT rol FROM inloginfo WHERE usrname = '" + usrname + "'", cnn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            DataTable dtRolChecker = new DataTable();
+            dtRolChecker.Load(rdr);
+            cnn.Close();
+            return dtRolChecker;
+        }
     }
 }

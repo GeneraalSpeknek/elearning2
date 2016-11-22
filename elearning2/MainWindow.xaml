@@ -8,8 +8,8 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <TextBox x:Name="tbUsrName" HorizontalAlignment="Left" Height="23" Margin="196,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
-        <TextBox x:Name="tbPwd" HorizontalAlignment="Left" Height="23" Margin="196,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
         <Button x:Name="tbLogin" HorizontalAlignment="Left" Margin="196,193,0,0" VerticalAlignment="Top" Width="120" Height="22" Content="Inloggen" Click="tbLogin_Click"/>
+        <PasswordBox x:Name="tbPwd" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="120" Margin="196,148,0,0" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

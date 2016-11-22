@@ -21,6 +21,11 @@ namespace elearning2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public struct inloggegevens
+        {
+            public string RolID { get; set; }
+            public string inlognaam { get; set; }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +34,12 @@ namespace elearning2
         private void tbLogin_Click(object sender, RoutedEventArgs e)
         {
             string usrname = tbUsrName.Text;
-            string pwd = tbPwd.Text;
+            string pwd = tbPwd.Password;
+
+            if(usrname == "" || pwd == "")
+            {
+                MessageBox.Show("U moet in beide tekstvelden iets invullen!");
+            }
 
             DataTable dtLoginCheck = new Dbs_Conn().LoginCheck(usrname,pwd);
 
@@ -41,7 +51,18 @@ namespace elearning2
             }
             else if (iRows == 1)
             {
-                MessageBox.Show("Login geslaagd!");
+                DataTable RolChecker = new Dbs_Conn().RolChecker(usrname);
+                string RolID = Convert.ToString(dtLoginCheck.Rows[0]["rol"]);
+
+                if (RolID == "consulent")
+                {
+                    MessageBox.Show("Ingelogd als consulent!");
+                }
+                if (RolID == "leerling")
+                {
+                    MessageBox.Show("Ingelogd als leerling!");
+                }
+
             }
         }
     }
