@@ -1,0 +1,15 @@
+﻿<Window x:Class="elearning2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:elearning2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox x:Name="tbUsrName" HorizontalAlignment="Left" Height="23" Margin="196,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+        <TextBox x:Name="tbPwd" HorizontalAlignment="Left" Height="23" Margin="196,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+        <Button x:Name="tbLogin" HorizontalAlignment="Left" Margin="196,193,0,0" VerticalAlignment="Top" Width="120" Height="22" Content="Inloggen" Click="tbLogin_Click"/>
+
+    </Grid>
+</Window>
