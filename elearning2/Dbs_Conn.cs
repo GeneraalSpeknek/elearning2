@@ -16,12 +16,12 @@ namespace elearning2
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
             cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = "+usrname+" AND pass ="+pwd);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = '"+usrname+"' AND pass = '"+pwd+"'", cnn);
             MySqlDataReader rdr = cmd.ExecuteReader();
-            DataTable tbl = new DataTable();
-            tbl.Load(rdr);
+            DataTable dtLoginCheck = new DataTable();
+            dtLoginCheck.Load(rdr);
             cnn.Close();
-            return tbl;
+            return dtLoginCheck;
         }
     }
 }

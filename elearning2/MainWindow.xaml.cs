@@ -30,9 +30,19 @@ namespace elearning2
         {
             string usrname = tbUsrName.Text;
             string pwd = tbPwd.Text;
-            int iRows;
 
             DataTable dtLoginCheck = new Dbs_Conn().LoginCheck(usrname,pwd);
+
+            int iRows = Convert.ToInt32(dtLoginCheck.Rows.Count.ToString());
+            
+            if (iRows == 0)
+            {
+                MessageBox.Show("U heeft een verkeerde gebruikersnaam of wachtwoord ingevoerd.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (iRows == 1)
+            {
+                MessageBox.Show("Login geslaagd!");
+            }
         }
     }
 }
