@@ -21,6 +21,7 @@ namespace elearning2
     public partial class VakWijzigen : Window
     {
         string IdVak = "";
+        int iPopulateLB = 0;
         struct Vakken
         {
             public string Id { get; set; }
@@ -36,7 +37,12 @@ namespace elearning2
 
         private void PopulateLB()
         {
-            lbVakken.Items.Clear();
+            if (iPopulateLB <1)
+            {
+                lbVakken.Items.Clear();
+                iPopulateLB++;
+            }
+            
             DataTable dtVakken = new Dbs_Conn().GetVakken();
             List<Vakken> lstVakken = new List<Vakken>();
 
@@ -45,6 +51,31 @@ namespace elearning2
                 lstVakken.Add(new Vakken() { Id = drVakken[0].ToString(), VakNaam = drVakken[1].ToString() });
             }
             lbVakken.ItemsSource = lstVakken;
+        }
+
+        private void btDeleteVak_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + tbVak.Text + "' wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            if (DeleteYesNo == MessageBoxResult.Yes)
+            {
+                new Dbs_Conn().DeleteVak(IdVak);
+                IdVak = ((Vakken)(lbVakken.SelectedItem)).Id;
+                PopulateLB();
+                tbVak.Text = "";
+            }
+            else if (DeleteYesNo == MessageBoxResult.No)
+            {
+                //do something else
+            }
+        }
+
+        private void lbVakken_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbVakken.SelectedItem != null)
+            {
+                IdVak = ((Vakken)(lbVakken.SelectedItem)).Id;
+                tbVak.Text = ((Vakken)(lbVakken.SelectedItem)).VakNaam;
+            }
         }
     }
 }

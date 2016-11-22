@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Vak wijzigen" Height="300" Width="521.008">
     <Grid>
-        <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="192">
+        <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="192" SelectionChanged="lbVakken_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding VakNaam}"/>
@@ -15,7 +15,10 @@
             </ListBox.ItemTemplate>
             <Label x:Name="label" Content="Label" Height="100" Width="100"/>
         </ListBox>
-        <Button x:Name="btDelete" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="428,239,0,0"/>
+        <Button x:Name="btDeleteVak" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="428,239,0,0" Click="btDeleteVak_Click"/>
+        <Button x:Name="btChangeVak" Content="Aanpassen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="328,239,0,0"/>
+        <Button x:Name="btAddVak" Content="Toevoegen" HorizontalAlignment="Left" Margin="220,239,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbVak" HorizontalAlignment="Left" Height="23" Margin="220,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
 
     </Grid>
 </Window>

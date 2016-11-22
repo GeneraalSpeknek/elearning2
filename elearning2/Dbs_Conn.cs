@@ -47,5 +47,15 @@ namespace elearning2
             cnn.Close();
             return tbl;
         }
+
+        public void DeleteVak(string IdVak)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM vak WHERE id = @Id", cnn);
+            cmd.Parameters.AddWithValue("@Id", IdVak);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
     }
 }
