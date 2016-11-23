@@ -4,12 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:elearning2"
+        MinHeight="350" MinWidth="525"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="tbLogin">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="0,0,0,3" Background="White" BorderBrush="#ccc" BorderThickness="0,1,1,0" >
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    
     <Grid>
-        <TextBox x:Name="tbUsrName" HorizontalAlignment="Left" Height="23" Margin="196,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
-        <Button x:Name="tbLogin" HorizontalAlignment="Left" Margin="196,193,0,0" VerticalAlignment="Top" Width="120" Height="22" Content="Inloggen" Click="tbLogin_Click"/>
-        <PasswordBox x:Name="tbPwd" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="120" Margin="196,148,0,0" HorizontalContentAlignment="Center"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="afbeeldingen/background.png"/>
+        </Grid.Background>
+        <TextBox x:Name="tbUsrName" Height="23" Margin="196,112,201,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Button x:Name="tbLogin" Margin="196,193,201,94" Content="Inloggen" Click="tbLogin_Click" Background="#FFE0381D" RenderTransformOrigin="0.5,0.5" Foreground="White" />
+        <PasswordBox x:Name="tbPwd" VerticalAlignment="Top" Height="23" Margin="196,148,201,0" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

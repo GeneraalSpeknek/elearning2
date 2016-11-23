@@ -97,17 +97,25 @@ namespace elearning2
 
         private void btChangeVak_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult ChangeYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + SelectedVakNaam + "' wilt wijzigen naar '"+ tbVak.Text +"'?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
-            if (ChangeYesNo == MessageBoxResult.Yes)
+            if (tbVak.Text == "")
             {
-                new Dbs_Conn().ChangeVak(IdVak, tbVak.Text);
-                PopulateLB();
-                tbVak.Text = "";
+                MessageBox.Show("Voer een geldige waarde in.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (ChangeYesNo == MessageBoxResult.No)
+
+            else
             {
-                //do something else
-            }
+                MessageBoxResult ChangeYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + SelectedVakNaam + "' wilt wijzigen naar '" + tbVak.Text + "'?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                if (ChangeYesNo == MessageBoxResult.Yes)
+                {
+                    new Dbs_Conn().ChangeVak(IdVak, tbVak.Text);
+                    PopulateLB();
+                    tbVak.Text = "";
+                }
+                else if (ChangeYesNo == MessageBoxResult.No)
+                {
+                    //do something else
+                }
+            } 
         }
     }
 }
