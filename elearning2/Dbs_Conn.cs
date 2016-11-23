@@ -69,5 +69,16 @@ namespace elearning2
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+
+        public void ChangeVak(string IdVak, string vak)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE vak SET naam = @vaknaam WHERE id = @Id", cnn);
+            cmd.Parameters.AddWithValue("@vaknaam", vak);
+            cmd.Parameters.AddWithValue("@Id", IdVak);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
     }
 }

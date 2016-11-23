@@ -21,6 +21,7 @@ namespace elearning2
     public partial class VakWijzigen : Window
     {
         string IdVak = "";
+        string SelectedVakNaam = "";
         int iPopulateLB = 0;
         struct Vakken
         {
@@ -53,9 +54,19 @@ namespace elearning2
             lbVakken.ItemsSource = lstVakken;
         }
 
+        private void lbVakken_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbVakken.SelectedItem != null)
+            {
+                IdVak = ((Vakken)(lbVakken.SelectedItem)).Id;
+                tbVak.Text = ((Vakken)(lbVakken.SelectedItem)).VakNaam;
+                SelectedVakNaam = ((Vakken)(lbVakken.SelectedItem)).VakNaam;
+            }
+        }
+
         private void btDeleteVak_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + tbVak.Text + "' wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + SelectedVakNaam + "' wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
             if (DeleteYesNo == MessageBoxResult.Yes)
             {
                 new Dbs_Conn().DeleteVak(IdVak);
@@ -66,15 +77,6 @@ namespace elearning2
             else if (DeleteYesNo == MessageBoxResult.No)
             {
                 //do something else
-            }
-        }
-
-        private void lbVakken_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (lbVakken.SelectedItem != null)
-            {
-                IdVak = ((Vakken)(lbVakken.SelectedItem)).Id;
-                tbVak.Text = ((Vakken)(lbVakken.SelectedItem)).VakNaam;
             }
         }
 
@@ -91,6 +93,21 @@ namespace elearning2
                 MessageBox.Show("Voer een geldige waarde in!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             tbVak.Text = "";
+        }
+
+        private void btChangeVak_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult ChangeYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + SelectedVakNaam + "' wilt wijzigen naar '"+ tbVak.Text +"'?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            if (ChangeYesNo == MessageBoxResult.Yes)
+            {
+                new Dbs_Conn().ChangeVak(IdVak, tbVak.Text);
+                PopulateLB();
+                tbVak.Text = "";
+            }
+            else if (ChangeYesNo == MessageBoxResult.No)
+            {
+                //do something else
+            }
         }
     }
 }
