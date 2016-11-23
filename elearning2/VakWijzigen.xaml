@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:elearning2"
         mc:Ignorable="d"
-        Title="Vak wijzigen" Height="300" Width="521.008">
+        Title="Vak wijzigen" Height="300" Width="521.008" WindowStartupLocation="CenterScreen">
     <Grid>
         <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="192" SelectionChanged="lbVakken_SelectionChanged">
             <ListBox.ItemTemplate>

@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="Consulent" Height="317.647" Width="510.084">
     <Grid Margin="0,0,-8,0">
-        <Button x:Name="btAddVak" Content="Vak toevoegen" HorizontalAlignment="Left" Margin="31,211,0,0" VerticalAlignment="Top" Width="94" Height="66" Click="btAddVak_Click"/>
-        <Button x:Name="btChangeVak" Content="Vak wijzigen" HorizontalAlignment="Left" Margin="199,211,0,0" VerticalAlignment="Top" Width="94" Height="66" Click="btChangeVak_Click"/>
-        <Button x:Name="btDeleteVak" Content="Vak verwijderen" HorizontalAlignment="Left" Margin="388,211,0,0" VerticalAlignment="Top" Width="94" Height="66" Click="btDeleteVak_Click"/>
+        <Button x:Name="btModifyVak" Content="Vak wijzigen" HorizontalAlignment="Left" Margin="31,211,0,0" VerticalAlignment="Top" Width="94" Height="66" Click="btAddVak_Click"/>
 
     </Grid>
 </Window>

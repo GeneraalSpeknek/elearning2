@@ -29,22 +29,6 @@ namespace elearning2
 
         private void btAddVak_Click(object sender, RoutedEventArgs e)
         {
-      
-           // WhichButton = "addvak";
-            this.Close();
-            VakWijzigenForm.Show();
-        }
-
-        private void btChangeVak_Click(object sender, RoutedEventArgs e)
-        {
-           // WhichButton = "changevak";
-            this.Close();
-            VakWijzigenForm.Show();
-        }
-
-        private void btDeleteVak_Click(object sender, RoutedEventArgs e)
-        {
-          //  WhichButton = "deletevak";
             this.Close();
             VakWijzigenForm.Show();
         }
