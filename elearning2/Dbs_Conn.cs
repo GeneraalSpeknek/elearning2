@@ -50,10 +50,22 @@ namespace elearning2
 
         public void DeleteVak(string IdVak)
         {
+            //archive voor deleted items maken
             MySqlConnection cnn = new MySqlConnection(strcnn);
             cnn.Open();
             MySqlCommand cmd = new MySqlCommand("DELETE FROM vak WHERE id = @Id", cnn);
             cmd.Parameters.AddWithValue("@Id", IdVak);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
+        public void AddVak(string vak)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO vak (naam) VALUES (@vak)", cnn);
+            cmd.Parameters.AddWithValue("@vak", vak);
+
             cmd.ExecuteNonQuery();
             cnn.Close();
         }

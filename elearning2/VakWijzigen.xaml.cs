@@ -77,5 +77,20 @@ namespace elearning2
                 tbVak.Text = ((Vakken)(lbVakken.SelectedItem)).VakNaam;
             }
         }
+
+        private void btAddVak_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbVak.Text != "")
+            {
+                //voeg inhoud van textbox toe aan database
+                new Dbs_Conn().AddVak(tbVak.Text);
+                PopulateLB();
+            }
+            if (tbVak.Text == "")
+            {
+                MessageBox.Show("Voer een geldige waarde in!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            tbVak.Text = "";
+        }
     }
 }
