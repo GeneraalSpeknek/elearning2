@@ -68,5 +68,10 @@ namespace elearning2
 
             }
         }
+
+        private void btCloseApp_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

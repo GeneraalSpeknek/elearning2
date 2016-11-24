@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:elearning2"
         MinHeight="350" MinWidth="525"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Icon="afbeeldingen/logo.png">
-       
+
     <Window.Resources>
         <Style TargetType="Button" x:Key="tbLogin">
             <Setter Property="Background" Value="White" />
@@ -25,7 +27,7 @@
         </Style>
     </Window.Resources>
 
-    
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
@@ -33,6 +35,11 @@
         <TextBox x:Name="tbUsrName" TabIndex="1" Height="23" Margin="196,185,201,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center"/>
         <Button x:Name="tbLogin" TabIndex="2" Margin="196,268,201,22" Content="Inloggen" Click="tbLogin_Click" Background="#FFE0381D" RenderTransformOrigin="0.5,0.5" Foreground="White" Cursor="Arrow" />
         <PasswordBox x:Name="tbPwd" VerticalAlignment="Top" Height="23" Margin="196,226,201,0" HorizontalContentAlignment="Center"/>
-
+        <Button x:Name="btCloseApp" Margin="10,10,457,282" BorderThickness="0" Click="btCloseApp_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="afbeeldingen/close.png"/>
+            </Button.Background>
+        </Button>
+        <Image x:Name="logo" Source="afbeeldingen/logo.png" Width="150" Height="150" Margin="181,35,186,157"></Image>
     </Grid>
 </Window>
