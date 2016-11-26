@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:elearning2"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
+         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Consulent" Height="317.647" Width="510.084" Icon="afbeeldingen/logo.png">
     <Grid Margin="0,0,-8,0">
