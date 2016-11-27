@@ -14,7 +14,7 @@
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
         </Grid.Background>
         <ListBox x:Name="lbLesonderwerp" HorizontalAlignment="Left" Height="320" Margin="315,10,0,0" VerticalAlignment="Top" Width="192"/>
-        <TextBox x:Name="tbLesonderwerp" HorizontalAlignment="Left" Height="23" Margin="19,275,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
+        <TextBox x:Name="tbLesonderwerp" HorizontalAlignment="Left" Height="23" Margin="19,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
         <Button x:Name="btAddLesonderwerp" Content="Toevoegen" HorizontalAlignment="Left" Margin="19,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btChangeLesonderwerp" Content="Aanpassen" HorizontalAlignment="Left" Margin="123,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btDeleteLesonderwerp" Content="Verwijderen" HorizontalAlignment="Left" Margin="227,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>

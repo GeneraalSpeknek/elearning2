@@ -11,7 +11,17 @@ namespace elearning2
     class Dbs_Conn
     {
         string strcnn = "Server=localhost;Database=elearning;uid=root;pwd=;";
-
+        public DataTable GetLesonderwerpen()
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM lesonderwerp", cnn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            DataTable tbl = new DataTable();
+            tbl.Load(rdr);
+            cnn.Close();
+            return tbl;
+        }
         public DataTable LoginCheck(string usrname, string pwd)
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
