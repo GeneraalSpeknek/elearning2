@@ -29,6 +29,7 @@ namespace elearning2
         public MainWindow()
         {
             InitializeComponent();
+            tbUsrName.Focus();
         }
 
         private void tbLogin_Click(object sender, RoutedEventArgs e)
