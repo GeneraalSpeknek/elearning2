@@ -39,5 +39,12 @@ namespace elearning2
             this.Hide();
             MWForm.Show();
         }
+
+        private void btModifyLesonderwerp_Click(object sender, RoutedEventArgs e)
+        {
+            LesonderwerpWijzigen ChangeLO = new LesonderwerpWijzigen();
+            this.Close();
+            ChangeLO.Show();
+        }
     }
 }

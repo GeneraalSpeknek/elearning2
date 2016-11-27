@@ -63,7 +63,6 @@ namespace elearning2
                 if (RolID == "leerling")
                 {
                     MessageBox.Show("Ingelogd als leerling!");
-                    
                 }
 
             }

@@ -18,7 +18,7 @@
         <Button x:Name="btAddLesonderwerp" Content="Toevoegen" HorizontalAlignment="Left" Margin="19,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btChangeLesonderwerp" Content="Aanpassen" HorizontalAlignment="Left" Margin="123,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btDeleteLesonderwerp" Content="Verwijderen" HorizontalAlignment="Left" Margin="227,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
-        <ComboBox x:Name="cbWelkVak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="283" Margin="19,68,0,0"/>
+        <ComboBox x:Name="cbWelkVak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="283" Margin="19,68,0,0" SelectionChanged="cbWelkVak_SelectionChanged"/>
 
     </Grid>
 </Window>

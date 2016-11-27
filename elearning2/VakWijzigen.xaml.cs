@@ -126,5 +126,9 @@ namespace elearning2
 
         }
 
+        private void tbVak_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
