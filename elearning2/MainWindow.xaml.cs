@@ -21,6 +21,7 @@ namespace elearning2
     /// </summary>
     public partial class MainWindow : Window
     {
+        int TekstVeldenGevuld = 1;
         public struct inloggegevens
         {
             public string RolID { get; set; }
@@ -40,32 +41,35 @@ namespace elearning2
             if(usrname == "" || pwd == "")
             {
                 MessageBox.Show("U moet in beide tekstvelden iets invullen!");
+                TekstVeldenGevuld = 0;
             }
-
-            DataTable dtLoginCheck = new Dbs_Conn().LoginCheck(usrname,pwd);
-
-            int iRows = Convert.ToInt32(dtLoginCheck.Rows.Count.ToString());
-            
-            if (iRows == 0)
+            else
             {
-                MessageBox.Show("U heeft een verkeerde gebruikersnaam of wachtwoord ingevoerd.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (iRows == 1)
-            {
-                DataTable RolChecker = new Dbs_Conn().RolChecker(usrname);
-                string RolID = Convert.ToString(dtLoginCheck.Rows[0]["rol"]);
+                DataTable dtLoginCheck = new Dbs_Conn().LoginCheck(usrname, pwd);
 
-                if (RolID == "consulent")
-                {
-                    ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
-                    this.Close();
-                    CKM.Show();
-                }
-                if (RolID == "leerling")
-                {
-                    MessageBox.Show("Ingelogd als leerling!");
-                }
+                int iRows = Convert.ToInt32(dtLoginCheck.Rows.Count.ToString());
 
+                if (iRows == 0)
+                {
+                    MessageBox.Show("U heeft een verkeerde gebruikersnaam of wachtwoord ingevoerd.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (iRows == 1)
+                {
+                    DataTable RolChecker = new Dbs_Conn().RolChecker(usrname);
+                    string RolID = Convert.ToString(dtLoginCheck.Rows[0]["rol"]);
+
+                    if (RolID == "consulent")
+                    {
+                        ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
+                        this.Close();
+                        CKM.Show();
+                    }
+                    if (RolID == "leerling")
+                    {
+                        MessageBox.Show("Ingelogd als leerling!");
+                    }
+
+                }
             }
         }
 
