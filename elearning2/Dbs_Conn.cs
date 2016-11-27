@@ -33,6 +33,16 @@ namespace elearning2
             cnn.Close();
             return tbl;
         }
+        public void ChangeLesonderwerp(string IdLesonderwerp, string NaamLesonderwerp)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET naamlesonderwerp = @Naam WHERE id = @Id", cnn);
+            cmd.Parameters.AddWithValue("@Naam", NaamLesonderwerp);
+            cmd.Parameters.AddWithValue("@Id", IdLesonderwerp);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
         #endregion
         #region Login
         public DataTable LoginCheck(string usrname, string pwd)

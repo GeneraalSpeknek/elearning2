@@ -38,12 +38,6 @@ namespace elearning2
 
         private void PopulateLB()
         {
-            if (iPopulateLB <1)
-            {
-                lbVakken.Items.Clear();
-                iPopulateLB++;
-            }
-            
             DataTable dtVakken = new Dbs_Conn().GetVakken();
             List<Vakken> lstVakken = new List<Vakken>();
 

@@ -73,10 +73,8 @@ namespace elearning2
             if (cbWelkVak.SelectedItem != null)
             {
                 IdVak = ((Vakken)(cbWelkVak.SelectedItem)).vakId;
-                tbLesonderwerp.Text = ((Vakken)(cbWelkVak.SelectedItem)).VakNaam;
                 SelectedVakNaam = ((Vakken)(cbWelkVak.SelectedItem)).VakNaam;
             }
-            MessageBox.Show("..." + IdVak + "..."+ SelectedVakNaam +"...");
         }
 
         private void btAddLesonderwerp_Click(object sender, RoutedEventArgs e)
@@ -91,9 +89,36 @@ namespace elearning2
             }
             else
             {
-                MessageBox.Show("" + IdVak + "");
                 new Dbs_Conn().AddLesonderwerp(tbLesonderwerp.Text, IdVak);
             }
+        }
+
+        private void lbLesonderwerp_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbLesonderwerp.SelectedItem != null)
+            {
+                IdLesonderwerp = ((Lesonderwerpen)(lbLesonderwerp.SelectedItem)).LesonderwerpId;
+                tbLesonderwerp.Text = ((Lesonderwerpen)(lbLesonderwerp.SelectedItem)).LesonderwerpNaam;
+                SelectedLesonderwerpNaam = ((Lesonderwerpen)(lbLesonderwerp.SelectedItem)).LesonderwerpNaam;
+            }
+        }
+
+        private void btChangeLesonderwerp_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbLesonderwerp.Text == "")
+            {
+                MessageBox.Show("Voer in hoe je het lesonderwerp wilt noemen. Dit veld mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + SelectedLesonderwerpNaam + "' wilt wijzigen naar " + tbLesonderwerp.Text + "?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                if(DeleteYesNo == MessageBoxResult.Yes)
+                {
+                    new Dbs_Conn().ChangeLesonderwerp(IdLesonderwerp, tbLesonderwerp.Text);
+                    tbLesonderwerp.Text = "";
+                }
+            }
+            FillComboBoxVakken();
         }
     }
 }

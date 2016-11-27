@@ -19,7 +19,6 @@
                     <TextBlock Text="{Binding VakNaam}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <Label x:Name="label" Content="Label" Height="100" Width="100"/>
         </ListBox>
         <Button x:Name="btDeleteVak" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="220,300,0,0" Click="btDeleteVak_Click" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btChangeVak" Content="Aanpassen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="116,300,0,0" Click="btChangeVak_Click" Background="#FFE0381D" Foreground="White"/>
