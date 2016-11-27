@@ -11,6 +11,17 @@ namespace elearning2
     class Dbs_Conn
     {
         string strcnn = "Server=localhost;Database=elearning;uid=root;pwd=;";
+
+        #region Lesonderwerp
+        public void AddLesonderwerp(string NewLesonderwerp, string idVak)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO lesonderwerp(naamlesonderwerp, vakid) VALUES('"+ NewLesonderwerp +"', "+ idVak +")", cnn);
+            cmd.Parameters.AddWithValue("@lesonderwerp", NewLesonderwerp);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
         public DataTable GetLesonderwerpen()
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
@@ -22,6 +33,8 @@ namespace elearning2
             cnn.Close();
             return tbl;
         }
+        #endregion
+        #region Login
         public DataTable LoginCheck(string usrname, string pwd)
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
@@ -45,7 +58,8 @@ namespace elearning2
             cnn.Close();
             return dtRolChecker;
         }
-
+        #endregion
+        #region Vak aanpassen
         public DataTable GetVakken()
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
@@ -75,7 +89,6 @@ namespace elearning2
             cnn.Open();
             MySqlCommand cmd = new MySqlCommand("INSERT INTO vak (naam) VALUES (@vak)", cnn);
             cmd.Parameters.AddWithValue("@vak", vak);
-
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
@@ -90,5 +103,6 @@ namespace elearning2
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+        #endregion
     }
 }

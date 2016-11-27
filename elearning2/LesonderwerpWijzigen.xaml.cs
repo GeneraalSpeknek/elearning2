@@ -76,7 +76,13 @@ namespace elearning2
                 tbLesonderwerp.Text = ((Vakken)(cbWelkVak.SelectedItem)).VakNaam;
                 SelectedVakNaam = ((Vakken)(cbWelkVak.SelectedItem)).VakNaam;
             }
-            //MessageBox.Show("..." + IdVak + "..."+ SelectedVakNaam +"...");
+            MessageBox.Show("..." + IdVak + "..."+ SelectedVakNaam +"...");
+        }
+
+        private void btAddLesonderwerp_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("" + IdVak + "");
+            new Dbs_Conn().AddLesonderwerp(tbLesonderwerp.Text ,IdVak);
         }
     }
 }
