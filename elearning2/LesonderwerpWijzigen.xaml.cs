@@ -81,8 +81,19 @@ namespace elearning2
 
         private void btAddLesonderwerp_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("" + IdVak + "");
-            new Dbs_Conn().AddLesonderwerp(tbLesonderwerp.Text ,IdVak);
+            if (cbWelkVak.SelectedItem == null)
+            {
+                MessageBox.Show("Selecteer een vak waaraan het nieuwe lesonderwerp moet worden toegevoegd.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (tbLesonderwerp.Text == "")
+            {
+                MessageBox.Show("Voer een naam in voor het nieuwe lesonderwerp!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBox.Show("" + IdVak + "");
+                new Dbs_Conn().AddLesonderwerp(tbLesonderwerp.Text, IdVak);
+            }
         }
     }
 }
