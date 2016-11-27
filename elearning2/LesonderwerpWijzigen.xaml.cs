@@ -112,7 +112,7 @@ namespace elearning2
             }
             else
             {
-                MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het vak '" + SelectedLesonderwerpNaam + "' wilt wijzigen naar '" + tbLesonderwerp.Text + "'?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het lesonderwerp '" + SelectedLesonderwerpNaam + "' wilt wijzigen naar '" + tbLesonderwerp.Text + "'?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
                 if(DeleteYesNo == MessageBoxResult.Yes)
                 {
                     new Dbs_Conn().ChangeLesonderwerp(IdLesonderwerp, tbLesonderwerp.Text);
@@ -120,6 +120,17 @@ namespace elearning2
                 }
             }
             FillLBLesonderwerpen();
+        }
+
+        private void btDeleteLesonderwerp_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het lesonderwerp '" + SelectedLesonderwerpNaam + " wil verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            if (DeleteYesNo == MessageBoxResult.Yes)
+            {
+                new Dbs_Conn().DeleteLesonderwerp(IdLesonderwerp);
+                tbLesonderwerp.Text = "";
+                FillLBLesonderwerpen();
+            }
         }
     }
 }

@@ -13,6 +13,16 @@ namespace elearning2
         string strcnn = "Server=localhost;Database=elearning;uid=root;pwd=;";
 
         #region Lesonderwerp
+
+        public void DeleteLesonderwerp(string IdVak)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            cnn.Open();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM lesonderwerp WHERE id = @Id", cnn);
+            cmd.Parameters.AddWithValue("@Id", IdVak);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
         public void AddLesonderwerp(string NewLesonderwerp, string idVak)
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
