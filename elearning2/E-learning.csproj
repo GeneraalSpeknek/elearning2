@@ -58,10 +58,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LesonderwerpWijzigen.xaml.cs">
+      <DependentUpon>LesonderwerpWijzigen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VakWijzigen.xaml.cs">
       <DependentUpon>VakWijzigen.xaml</DependentUpon>
     </Compile>
     <Page Include="ConsulentenKeuzeMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LesonderwerpWijzigen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

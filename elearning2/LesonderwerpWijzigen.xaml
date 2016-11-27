@@ -1,0 +1,24 @@
+﻿<Window x:Class="elearning2.LesonderwerpWijzigen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:elearning2"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        Title="LesonderwerpWijzigen" Height="350" Width="525">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="afbeeldingen/background.png"/>
+        </Grid.Background>
+        <ListBox x:Name="lbLesonderwerp" HorizontalAlignment="Left" Height="320" Margin="315,10,0,0" VerticalAlignment="Top" Width="192"/>
+        <TextBox x:Name="tbLesonderwerp" HorizontalAlignment="Left" Height="23" Margin="19,275,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
+        <Button x:Name="btAddLesonderwerp" Content="Toevoegen" HorizontalAlignment="Left" Margin="19,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
+        <Button x:Name="btChangeLesonderwerp" Content="Aanpassen" HorizontalAlignment="Left" Margin="123,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
+        <Button x:Name="btDeleteLesonderwerp" Content="Verwijderen" HorizontalAlignment="Left" Margin="227,310,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White"/>
+        <ComboBox x:Name="cbWelkVak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="283" Margin="19,68,0,0"/>
+
+    </Grid>
+</Window>

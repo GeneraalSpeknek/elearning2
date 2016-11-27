@@ -24,7 +24,7 @@
         <Button x:Name="btDeleteVak" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="220,300,0,0" Click="btDeleteVak_Click" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btChangeVak" Content="Aanpassen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="116,300,0,0" Click="btChangeVak_Click" Background="#FFE0381D" Foreground="White"/>
         <Button x:Name="btAddVak" Content="Toevoegen" HorizontalAlignment="Left" Margin="12,300,0,0" VerticalAlignment="Top" Width="75" Click="btAddVak_Click" Background="#FFE0381D" Foreground="White"/>
-        <TextBox x:Name="tbVak" HorizontalAlignment="Left" Height="23" Margin="12,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
+        <TextBox x:Name="tbVak" HorizontalAlignment="Left" Height="23" Margin="12,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" TextChanged="tbVak_TextChanged"/>
         <Button x:Name="btBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" BorderThickness="0" Click="btBack_Click" Margin="10,10,0,0">
             <Button.Background>
                 <ImageBrush ImageSource="afbeeldingen/back.png"/>
