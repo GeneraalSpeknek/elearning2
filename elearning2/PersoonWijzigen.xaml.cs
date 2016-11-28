@@ -48,10 +48,8 @@ namespace elearning2
 
             DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
             string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
-            MessageBox.Show("" + sInlogInfoId + "");
 
-
-            new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer);
+            new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer, sInlogInfoId);
         }
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -62,6 +60,13 @@ namespace elearning2
         private void ComboBoxItem_Selected_1(object sender, RoutedEventArgs e)
         {
             sRol = "consulent";
+        }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
+            this.Close();
+            CKM.Show();
         }
     }
 }

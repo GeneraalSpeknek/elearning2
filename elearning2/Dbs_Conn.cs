@@ -53,7 +53,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = 'ikbenjordy'", cnn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = '" + sUsername + "'", cnn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 tbl.Load(rdr);
                 cnn.Close();
@@ -65,20 +65,21 @@ namespace elearning2
             return tbl;
         }
 
-        public void AddPerson(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer)
+        public void AddPerson(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInlogId)
         {
             try
             {
                 OpenConnection();
                 MySqlConnection cnn = new MySqlConnection(strcnn);
                 cnn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO userinfo(voornaam, tussenvoegsel, achternaam, telefoonnummer, email, kamernummer) VALUES(@voornaam, @tussenvoegsel, @achternaam, @telefoonnummer, @email, @kamernummer)", cnn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO userinfo(voornaam, tussenvoegsel, achternaam, telefoonnummer, email, kamernummer, inloginfoid) VALUES(@voornaam, @tussenvoegsel, @achternaam, @telefoonnummer, @email, @kamernummer, @userinlogid)", cnn);
                 cmd.Parameters.AddWithValue("@voornaam", sVoornaam);
                 cmd.Parameters.AddWithValue("@tussenvoegsel", sTussenvoegsel);
                 cmd.Parameters.AddWithValue("@achternaam", sAchternaam);
                 cmd.Parameters.AddWithValue("@telefoonnummer", sTelefoonnummer);
                 cmd.Parameters.AddWithValue("@email", sEmail);
                 cmd.Parameters.AddWithValue("@kamernummer", sKamerNummer);
+                cmd.Parameters.AddWithValue("@userinlogid", sUserInlogId);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
             }
