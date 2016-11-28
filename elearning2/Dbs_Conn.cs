@@ -27,6 +27,44 @@ namespace elearning2
         }
 
         #region persoon aanpassen
+        public void AddUser(string sUsername, string sPass, string sRol)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlConnection cnn = new MySqlConnection(strcnn);
+                cnn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO inloginfo(usrname, pass, rol)VALUES(@username, @pass, @rol)", cnn);
+                cmd.Parameters.AddWithValue("@username", sUsername);
+                cmd.Parameters.AddWithValue("@pass", sPass);
+                cmd.Parameters.AddWithValue("@rol", sRol);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public DataTable GetUserLoginId(string sUsername)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE username = " + sUsername + "", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return tbl;
+        }
+
         public void AddPerson(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer)
         {
             try
@@ -48,6 +86,12 @@ namespace elearning2
             {
 
             }
+        }
+
+        public void addUser()
+        {
+            OpenConnection();
+
         }
         #endregion
 

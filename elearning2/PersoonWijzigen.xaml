@@ -15,15 +15,21 @@
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="77*"/>
-            <ColumnDefinition Width="442*"/>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="220*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btAddPerson" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,315,0,0" Background="#FFE0381D" Height="19" Foreground="White" Grid.ColumnSpan="2" Click="btAddPerson_Click"/>
+        <Button x:Name="btAddPerson" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,314,0,0" Background="#FFE0381D" Height="19" Foreground="White" Click="btAddPerson_Click" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbVoornaam" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbTussenvoegsel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="46.2,37,0,0"/>
+        <TextBox x:Name="tbTussenvoegsel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Column="1" Margin="44.6,37,0,0"/>
         <TextBox x:Name="tbAchternaam" HorizontalAlignment="Left" Height="23" Margin="0,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Grid.ColumnSpan="2"/>
-        <xctk:IntegerUpDown Maximum="9999" Name="UdKamerNummer" Margin="0,149,3.8,171" RenderTransformOrigin="0.459,0.542" />
+        <xctk:IntegerUpDown Maximum="9999" Name="UdKamerNummer" Margin="0,149,429.4,171" RenderTransformOrigin="0.459,0.542" Grid.ColumnSpan="2" />
         <TextBox x:Name="tbTelefoonNummer" HorizontalAlignment="Left" Height="23" Margin="0,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Margin="0,121,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbGebruikersnaam" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="0,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" Height="23" Width="245" RenderTransformOrigin="-4.688,-1.306" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="245" Margin="0,262,0,0">
+            <ComboBoxItem Content="Leerling" HorizontalAlignment="Left" Width="243.2" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="Consulent" HorizontalAlignment="Left" Width="243.2" Selected="ComboBoxItem_Selected_1"/>
+        </ComboBox>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,12 @@ namespace elearning2
     /// </summary>
     public partial class PersoonWijzigen : Window
     {
+        string sRol;
+
+        struct UserInfoId
+        {
+            public string Userinfoid { get; set; }
+        }
         public PersoonWijzigen()
         {
             InitializeComponent();
@@ -26,6 +33,8 @@ namespace elearning2
 
         private void btAddPerson_Click(object sender, RoutedEventArgs e)
         {
+            DataTable dtUserLoginId = new DataTable();
+
             string sVoornaam = tbVoornaam.Text;
             string sTussenvoegsel = tbTussenvoegsel.Text;
             string sAchternaam = tbAchternaam.Text;
@@ -33,7 +42,26 @@ namespace elearning2
             string sEmail = tbEmail.Text;
             string sKamerNummer = UdKamerNummer.Text;
 
+            string sUsrname = tbGebruikersnaam.Text;
+            string sPass = tbPass.Password;
+
+            new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
+
+            dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
+
+
+
             new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer);
+        }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            sRol = "leerling";
+        }
+
+        private void ComboBoxItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            sRol = "consulent";
         }
     }
 }
