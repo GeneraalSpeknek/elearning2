@@ -26,6 +26,31 @@ namespace elearning2
             }
         }
 
+        #region persoon aanpassen
+        public void AddPerson(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlConnection cnn = new MySqlConnection(strcnn);
+                cnn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO userinfo(voornaam, tussenvoegsel, achternaam, telefoonnummer, email, kamernummer) VALUES(@voornaam, @tussenvoegsel, @achternaam, @telefoonnummer, @email, @kamernummer)", cnn);
+                cmd.Parameters.AddWithValue("@voornaam", sVoornaam);
+                cmd.Parameters.AddWithValue("@tussenvoegsel", sTussenvoegsel);
+                cmd.Parameters.AddWithValue("@achternaam", sAchternaam);
+                cmd.Parameters.AddWithValue("@telefoonnummer", sTelefoonnummer);
+                cmd.Parameters.AddWithValue("@email", sEmail);
+                cmd.Parameters.AddWithValue("@kamernummer", sKamerNummer);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        #endregion
+
         #region Lesonderwerp
 
         public void DeleteLesonderwerp(string IdVak)

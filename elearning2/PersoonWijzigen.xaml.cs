@@ -23,5 +23,17 @@ namespace elearning2
         {
             InitializeComponent();
         }
+
+        private void btAddPerson_Click(object sender, RoutedEventArgs e)
+        {
+            string sVoornaam = tbVoornaam.Text;
+            string sTussenvoegsel = tbTussenvoegsel.Text;
+            string sAchternaam = tbAchternaam.Text;
+            string sTelefoonnummer = tbTelefoonNummer.Text;
+            string sEmail = tbEmail.Text;
+            string sKamerNummer = UdKamerNummer.Text;
+
+            new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer);
+        }
     }
 }
