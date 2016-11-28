@@ -21,11 +21,13 @@ namespace elearning2
     public partial class PersoonWijzigen : Window
     {
         string sRol;
+        bool ValidateGegevensInputBool;
 
         struct UserInfoId
         {
             public string Userinfoid { get; set; }
         }
+
 
         struct UserInfo
         {
@@ -53,6 +55,17 @@ namespace elearning2
             PopulateLVUsers();
         }
 
+        private void ValidateGegevensInput()
+        {
+            if (tbVoornaam.Text == "" || tbAchternaam.Text == "" || tbTelefoonNummer.Text == "" || tbEmail.Text == "" || tbGebruikersnaam.Text == "" || tbPass.Password == "" || cbRol.Text == "")
+            {
+                ValidateGegevensInputBool = false;
+            }
+            else
+            {
+                ValidateGegevensInputBool = true;
+            }
+        }
         private void PopulateLVUsers()
         {
             DataTable dtLesonderwerpen = new Dbs_Conn().GetUser();
@@ -77,25 +90,33 @@ namespace elearning2
         }
         private void btAddPerson_Click(object sender, RoutedEventArgs e)
         {
+            ValidateGegevensInput();
+            if (ValidateGegevensInputBool == true)
+            {
+                string sVoornaam = tbVoornaam.Text;
+                string sTussenvoegsel = tbTussenvoegsel.Text;
+                string sAchternaam = tbAchternaam.Text;
+                string sTelefoonnummer = tbTelefoonNummer.Text;
+                string sEmail = tbEmail.Text;
+                string sKamerNummer = UdKamerNummer.Text;
 
-            string sVoornaam = tbVoornaam.Text;
-            string sTussenvoegsel = tbTussenvoegsel.Text;
-            string sAchternaam = tbAchternaam.Text;
-            string sTelefoonnummer = tbTelefoonNummer.Text;
-            string sEmail = tbEmail.Text;
-            string sKamerNummer = UdKamerNummer.Text;
+                string sUsrname = tbGebruikersnaam.Text;
+                string sPass = tbPass.Password;
 
-            string sUsrname = tbGebruikersnaam.Text;
-            string sPass = tbPass.Password;
+                new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
 
-            new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
+                DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
+                string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
 
-            DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
-            string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
+                new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer, sInlogInfoId);
 
-            new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer, sInlogInfoId);
-
-            PopulateLVUsers();
+                PopulateLVUsers();
+            }
+            else
+            {
+                MessageBox.Show("Verplichte velden mogen niet leeg zijn! Verplichte velden kun je herkennen aan een '*'.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+           
         }
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -244,7 +265,7 @@ namespace elearning2
             }
             else
             {
-                sTussenvoegsel = sTSVZonderTest;
+                sTussenvoegsel = " ";
             }
 
             MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je '" + sVoornaam +""+ sTussenvoegsel +"" + sAchternaam + "' wilt verwijderen als gebruiker?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);

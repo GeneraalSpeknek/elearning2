@@ -37,15 +37,15 @@
             </Button.Background>
         </Button>
 
-        <Label x:Name="label" Content="Voornaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0" Foreground="White" Width="75" Grid.Column="1" Height="26"/>
-        <Label x:Name="label1" Content="Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,114,0,0" Foreground="White" Width="75" Grid.Column="1" Height="26"/>
+        <Label x:Name="label" Content="*Voornaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0" Foreground="White" Width="75" Grid.Column="1" Height="26"/>
+        <Label x:Name="label1" Content="*Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,114,0,0" Foreground="White" Width="75" Grid.Column="1" Height="26"/>
         <Label x:Name="label2" Content="Tussenvoegsel:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,65,0,0" Foreground="White" Width="91" Grid.Column="1" Height="26"/>
-        <Label x:Name="label3" Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,158,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
-        <Label x:Name="label4" Content="E-mail adres:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,204,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label3" Content="*Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,158,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label4" Content="*E-mail adres:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,204,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
         <Label x:Name="label5" Content="Kamernummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,250,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
-        <Label x:Name="label6" Content="Gebruikersnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,304,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
-        <Label x:Name="label7" Content="Wachtwoord:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,354,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
-        <Label x:Name="label8" Content="Leerling of consulent:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,403,0,0" Foreground="White" Width="130" Grid.Column="1" Height="26"/>
+        <Label x:Name="label6" Content="*Gebruikersnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,304,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label7" Content="*Wachtwoord:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,354,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label8" Content="*Leerling of consulent:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,403,0,0" Foreground="White" Width="130" Grid.Column="1" Height="26"/>
         <ListView x:Name="lvUsers" HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="293" Grid.Column="1" Margin="480,10,0,0" SelectionChanged="lvUsers_SelectionChanged">
             <ListView.View>
                 <GridView>
