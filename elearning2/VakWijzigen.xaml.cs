@@ -22,7 +22,6 @@ namespace elearning2
     {
         string IdVak = "";
         string SelectedVakNaam = "";
-        int iPopulateLB = 0;
         struct Vakken
         {
             public string Id { get; set; }

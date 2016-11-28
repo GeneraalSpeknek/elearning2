@@ -11,117 +11,179 @@ namespace elearning2
     class Dbs_Conn
     {
         string strcnn = "Server=localhost;Database=elearning;uid=root;pwd=;";
+        MySqlConnection cnn;
+
+        private void OpenConnection()
+        {
+            cnn = new MySqlConnection(strcnn);
+            try
+            {
+                cnn.Open();
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("Er kan op dit moment geen verbinding worden gemaakt met de database. Probeer het later opnieuw.","Foutmelding");
+            }
+        }
 
         #region Lesonderwerp
 
         public void DeleteLesonderwerp(string IdVak)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM lesonderwerp WHERE id = @Id", cnn);
-            cmd.Parameters.AddWithValue("@Id", IdVak);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM lesonderwerp WHERE id = @Id", cnn);
+                cmd.Parameters.AddWithValue("@Id", IdVak);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
         public void AddLesonderwerp(string NewLesonderwerp, string idVak)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO lesonderwerp(naamlesonderwerp, vakid) VALUES('"+ NewLesonderwerp +"', "+ idVak +")", cnn);
-            cmd.Parameters.AddWithValue("@lesonderwerp", NewLesonderwerp);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlConnection cnn = new MySqlConnection(strcnn);
+                cnn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO lesonderwerp(naamlesonderwerp, vakid) VALUES('" + NewLesonderwerp + "', " + idVak + ")", cnn);
+                cmd.Parameters.AddWithValue("@lesonderwerp", NewLesonderwerp);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
         public DataTable GetLesonderwerpen()
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM lesonderwerp", cnn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
             DataTable tbl = new DataTable();
-            tbl.Load(rdr);
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM lesonderwerp", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
             return tbl;
         }
+
         public void ChangeLesonderwerp(string IdLesonderwerp, string NaamLesonderwerp)
         {
             MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET naamlesonderwerp = @Naam WHERE id = @Id", cnn);
-            cmd.Parameters.AddWithValue("@Naam", NaamLesonderwerp);
-            cmd.Parameters.AddWithValue("@Id", IdLesonderwerp);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET naamlesonderwerp = @Naam WHERE id = @Id", cnn);
+                cmd.Parameters.AddWithValue("@Naam", NaamLesonderwerp);
+                cmd.Parameters.AddWithValue("@Id", IdLesonderwerp);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+            
+            }
         }
         #endregion
         #region Login
         public DataTable LoginCheck(string usrname, string pwd)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = '"+usrname+"' AND pass = '"+pwd+"'", cnn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
             DataTable dtLoginCheck = new DataTable();
-            dtLoginCheck.Load(rdr);
-            cnn.Close();
+            OpenConnection();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = '" + usrname + "' AND pass = '" + pwd + "'", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                dtLoginCheck.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
             return dtLoginCheck;
         }
 
-        public DataTable RolChecker(string usrname)
-        {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT rol FROM inloginfo WHERE usrname = '" + usrname + "'", cnn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            DataTable dtRolChecker = new DataTable();
-            dtRolChecker.Load(rdr);
-            cnn.Close();
-            return dtRolChecker;
-        }
+   
         #endregion
         #region Vak aanpassen
         public DataTable GetVakken()
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM vak", cnn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
             DataTable tbl = new DataTable();
-            tbl.Load(rdr);
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM vak", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
             return tbl;
         }
 
         public void DeleteVak(string IdVak)
         {
-            //archive voor deleted items maken
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM vak WHERE id = @Id", cnn);
-            cmd.Parameters.AddWithValue("@Id", IdVak);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM vak WHERE id = @Id", cnn);
+                cmd.Parameters.AddWithValue("@Id", IdVak);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void AddVak(string vak)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO vak (naam) VALUES (@vak)", cnn);
-            cmd.Parameters.AddWithValue("@vak", vak);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO vak (naam) VALUES (@vak)", cnn);
+                cmd.Parameters.AddWithValue("@vak", vak);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+             
+            }
         }
 
         public void ChangeVak(string IdVak, string vak)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
-            cnn.Open();
-            MySqlCommand cmd = new MySqlCommand("UPDATE vak SET naam = @vaknaam WHERE id = @Id", cnn);
-            cmd.Parameters.AddWithValue("@vaknaam", vak);
-            cmd.Parameters.AddWithValue("@Id", IdVak);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("UPDATE vak SET naam = @vaknaam WHERE id = @Id", cnn);
+                cmd.Parameters.AddWithValue("@vaknaam", vak);
+                cmd.Parameters.AddWithValue("@Id", IdVak);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
         #endregion
     }

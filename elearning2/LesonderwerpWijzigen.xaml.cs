@@ -47,14 +47,16 @@ namespace elearning2
         private void FillLBLesonderwerpen()
         {
             DataTable dtLesonderwerpen = new Dbs_Conn().GetLesonderwerpen();
-            List<Lesonderwerpen> lstVakken = new List<Lesonderwerpen>();
-
-            foreach (DataRow drLesonderwerpen in dtLesonderwerpen.Rows)
+            if (dtLesonderwerpen != null)
             {
-                lstVakken.Add(new Lesonderwerpen() { LesonderwerpId = drLesonderwerpen[0].ToString(), LesonderwerpNaam = drLesonderwerpen[1].ToString() });
-            }
-            lbLesonderwerp.ItemsSource = lstVakken;
+                List<Lesonderwerpen> lstVakken = new List<Lesonderwerpen>();
 
+                foreach (DataRow drLesonderwerpen in dtLesonderwerpen.Rows)
+                {
+                    lstVakken.Add(new Lesonderwerpen() { LesonderwerpId = drLesonderwerpen[0].ToString(), LesonderwerpNaam = drLesonderwerpen[1].ToString() });
+                }
+                lbLesonderwerp.ItemsSource = lstVakken;
+            }
         }
         private void FillComboBoxVakken()
         {
