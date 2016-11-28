@@ -103,14 +103,26 @@ namespace elearning2
                 string sUsrname = tbGebruikersnaam.Text;
                 string sPass = tbPass.Password;
 
-                new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
+                DataTable dtCheckUsername = new Dbs_Conn().CheckUserName(sUsrname);
+                if (dtCheckUsername != null)
+                {
+                    int iRowsCheckUsername = dtCheckUsername.Rows.Count;
+                    if (iRowsCheckUsername == 0)
+                    {
+                        new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
 
-                DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
-                string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
+                        DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
+                        string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
 
-                new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer, sInlogInfoId);
+                        new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer, sInlogInfoId);
 
-                PopulateLVUsers();
+                        PopulateLVUsers();
+                    }
+                    else
+                    {
+                        MessageBox.Show("De gekozen gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
             }
             else
             {

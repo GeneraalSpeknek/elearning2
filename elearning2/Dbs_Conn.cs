@@ -27,13 +27,13 @@ namespace elearning2
         }
 
         #region persoon aanpassen
-        public DataTable CheckUserName(string sInlogId)
+        public DataTable CheckUserName(string sUserName)
         {
             DataTable tbl = new DataTable();
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = '" + sInlogId + "'", cnn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = '" + sUserName + "'", cnn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 tbl.Load(rdr);
                 cnn.Close();
@@ -43,6 +43,7 @@ namespace elearning2
                 return null;
             }
             return tbl;
+        }
         public void DeleteUserInloginfo(string UserId)
         {
             try
