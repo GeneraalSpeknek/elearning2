@@ -27,6 +27,38 @@ namespace elearning2
         }
 
         #region persoon aanpassen
+
+        public void DeleteUserInloginfo(string UserId)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM inloginfo WHERE id = @Id", cnn);
+                cmd.Parameters.AddWithValue("@Id", UserId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public void DeleteUserUserInfo(string UserId)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM userinfo WHERE id = @Id", cnn);
+                cmd.Parameters.AddWithValue("@Id", UserId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
         public DataTable GetUserCredentials(string sInlogId)
         {
             DataTable tbl = new DataTable();
@@ -124,12 +156,6 @@ namespace elearning2
             {
 
             }
-        }
-
-        public void addUser()
-        {
-            OpenConnection();
-
         }
         #endregion
 

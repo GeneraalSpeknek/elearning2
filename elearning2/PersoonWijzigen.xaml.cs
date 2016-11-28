@@ -213,7 +213,6 @@ namespace elearning2
                 DataTable dtUserCredentials = new Dbs_Conn().GetUserCredentials(inloginfoId);
                 if (dtUserCredentials != null)
                 {
-                    string sUserCredentialsId = Convert.ToString(dtUserCredentials.Rows[0]["id"]);
                     string sUserCredentialsUsername = Convert.ToString(dtUserCredentials.Rows[0]["usrname"]);
                     string sUserCredentialsPass = Convert.ToString(dtUserCredentials.Rows[0]["pass"]);
                     string sUserCredentialsRol = Convert.ToString(dtUserCredentials.Rows[0]["rol"]);
@@ -229,6 +228,46 @@ namespace elearning2
                         cbRol.SelectedIndex = 1;
                     }
                 }
+            }
+        }
+
+        private void btDeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            string sTussenvoegsel;
+            string sVoornaam = ((UserInfo)(lvUsers.SelectedItem)).voornaam;
+            string sTSVZonderTest = ((UserInfo)(lvUsers.SelectedItem)).tussenvoegsel;
+            string sAchternaam = ((UserInfo)(lvUsers.SelectedItem)).achternaam;
+
+            if (sTSVZonderTest != "")
+            {
+                sTussenvoegsel = " " + sTSVZonderTest + " ";
+            }
+            else
+            {
+                sTussenvoegsel = sTSVZonderTest;
+            }
+
+            MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je '" + sVoornaam +""+ sTussenvoegsel +"" + sAchternaam + "' wilt verwijderen als gebruiker?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            if (DeleteYesNo == MessageBoxResult.Yes)
+            {
+                string inloginfoId = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
+                new Dbs_Conn().DeleteUserInloginfo(inloginfoId);
+                
+                string UserInfoId = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+                new Dbs_Conn().DeleteUserUserInfo(UserInfoId);
+                PopulateLVUsers();
+
+                tbVoornaam.Text = "";
+                tbTussenvoegsel.Text = "";
+                tbAchternaam.Text = "";
+                tbTelefoonNummer.Text = "";
+                tbEmail.Text = "";
+                UdKamerNummer.Text = "";
+
+                tbGebruikersnaam.Text = "";
+                tbPass.Password = "";
+
+                cbRol.SelectedIndex = -1;
             }
         }
     }

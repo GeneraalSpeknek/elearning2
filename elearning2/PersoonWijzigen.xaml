@@ -15,38 +15,38 @@
     </Window.Background>
     <Grid Margin="10,0,0,2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="39*"/>
-            <ColumnDefinition Width="220*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btAddPerson" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,486,0,0" Background="#FFE0381D" Height="19" Foreground="White" Click="btAddPerson_Click"/>
+        <Button x:Name="btAddPerson" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="1,480,0,0" Background="#FFE0381D" Height="25" Foreground="White" Click="btAddPerson_Click" Grid.Column="1"/>
         <TextBox x:Name="tbVoornaam"  HorizontalAlignment="Left" Height="23" Margin="0,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbTussenvoegsel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Column="1" Margin="10,91,0,0"/>
-        <TextBox x:Name="tbAchternaam"  HorizontalAlignment="Left" Height="23" Margin="2,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbTelefoonNummer"  HorizontalAlignment="Left" Height="23" Margin="1,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbTussenvoegsel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Column="1" Margin="126,91,0,0"/>
+        <TextBox x:Name="tbAchternaam"  HorizontalAlignment="Left" Height="23" Margin="0,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.Column="1"/>
+        <TextBox x:Name="tbTelefoonNummer"  HorizontalAlignment="Left" Height="23" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.Column="1"/>
         <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Margin="0,230,0,0" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbGebruikersnaam" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="0,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
-        <xctk:IntegerUpDown Name="UdKamerNummer" Margin="0,276,0,0" Maximum="9999" Height="27" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown Name="UdKamerNummer" Margin="1,272,697,0" Maximum="9999" Height="27" VerticalAlignment="Top" Grid.Column="1"/>
         <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="0,380,0,0" VerticalAlignment="Top" Height="23" Width="245" RenderTransformOrigin="-4.688,-1.306" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="cbRol" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="245" Margin="2,424,0,0">
+        <ComboBox x:Name="cbRol" HorizontalAlignment="Left" VerticalAlignment="Top" Width="245" Margin="0,434,0,0" Grid.Column="1" Height="22">
             <ComboBoxItem Content="Leerling" HorizontalAlignment="Left" Width="243.2" Selected="ComboBoxItem_Selected"/>
             <ComboBoxItem Content="Consulent" HorizontalAlignment="Left" Width="243.2" Selected="ComboBoxItem_Selected_1"/>
         </ComboBox>
-        <Button x:Name="btBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Click="btBack_Click">
+        <Button x:Name="btBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Click="btBack_Click" Grid.ColumnSpan="2">
             <Button.Background>
                 <ImageBrush ImageSource="afbeeldingen/back.png"/>
             </Button.Background>
         </Button>
 
-        <Label x:Name="label" Content="Voornaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,65,0,0" Foreground="White" Width="75"/>
-        <Label x:Name="label1" Content="Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,114,0,0" Foreground="White" Width="75"/>
-        <Label x:Name="label2" Content="Tussenvoegsel:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,65,0,0" Foreground="White" Width="91" Grid.Column="1"/>
-        <Label x:Name="label3" Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,158,0,0" Foreground="White" Width="106"/>
-        <Label x:Name="label4" Content="E-mail adres:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,204,0,0" Foreground="White" Width="106"/>
-        <Label x:Name="label5" Content="Kamernummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,250,0,0" Foreground="White" Width="106"/>
-        <Label x:Name="label6" Content="Gebruikersnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,304,0,0" Foreground="White" Width="106"/>
-        <Label x:Name="label7" Content="Wachtwoord:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,354,0,0" Foreground="White" Width="106"/>
-        <Label x:Name="label8" Content="Leerling of consulent:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,403,0,0" Foreground="White" Width="130" Grid.ColumnSpan="2"/>
-        <ListView x:Name="lvUsers" HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="258" Grid.Column="1" Margin="397,10,0,0" SelectionChanged="lvUsers_SelectionChanged">
+        <Label x:Name="label" Content="Voornaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0" Foreground="White" Width="75" Grid.Column="1" Height="26"/>
+        <Label x:Name="label1" Content="Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,114,0,0" Foreground="White" Width="75" Grid.Column="1" Height="26"/>
+        <Label x:Name="label2" Content="Tussenvoegsel:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,65,0,0" Foreground="White" Width="91" Grid.Column="1" Height="26"/>
+        <Label x:Name="label3" Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,158,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label4" Content="E-mail adres:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,204,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label5" Content="Kamernummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,250,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label6" Content="Gebruikersnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,304,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label7" Content="Wachtwoord:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,354,0,0" Foreground="White" Width="106" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="label8" Content="Leerling of consulent:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,403,0,0" Foreground="White" Width="130" Grid.Column="1" Height="26"/>
+        <ListView x:Name="lvUsers" HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="293" Grid.Column="1" Margin="480,10,0,0" SelectionChanged="lvUsers_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Voornaam" DisplayMemberBinding="{Binding voornaam}"/>
@@ -55,5 +55,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btDeleteUser" Grid.ColumnSpan="2" Content="Verwijderen" HorizontalAlignment="Left" Margin="172,485,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White" Click="btDeleteUser_Click"/>
     </Grid>
 </Window>
