@@ -134,5 +134,12 @@ namespace elearning2
                 FillLBLesonderwerpen();
             }
         }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
+            this.Close();
+            CKM.Show();
+        }
     }
 }

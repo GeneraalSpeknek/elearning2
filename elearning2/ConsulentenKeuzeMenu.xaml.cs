@@ -46,5 +46,12 @@ namespace elearning2
             this.Close();
             ChangeLO.Show();
         }
+
+        private void btPersoonWijzigen_Click(object sender, RoutedEventArgs e)
+        {
+            PersoonWijzigen PWForm = new PersoonWijzigen();
+            this.Close();
+            PWForm.Show();
+        }
     }
 }
