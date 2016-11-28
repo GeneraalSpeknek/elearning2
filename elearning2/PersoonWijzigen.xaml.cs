@@ -33,7 +33,6 @@ namespace elearning2
 
         private void btAddPerson_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dtUserLoginId = new DataTable();
 
             string sVoornaam = tbVoornaam.Text;
             string sTussenvoegsel = tbTussenvoegsel.Text;
@@ -47,8 +46,9 @@ namespace elearning2
 
             new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
 
-            dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
-
+            DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
+            string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
+            MessageBox.Show("" + sInlogInfoId + "");
 
 
             new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer);

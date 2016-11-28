@@ -53,7 +53,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE username = " + sUsername + "", cnn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE usrname = 'ikbenjordy'", cnn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 tbl.Load(rdr);
                 cnn.Close();
