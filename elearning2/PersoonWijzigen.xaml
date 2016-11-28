@@ -55,6 +55,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btDeleteUser" Grid.ColumnSpan="2" Content="Verwijderen" HorizontalAlignment="Left" Margin="172,485,0,0" VerticalAlignment="Top" Width="75" Background="#FFE0381D" Foreground="White" Click="btDeleteUser_Click"/>
+        <Button x:Name="btDeleteUser" Grid.ColumnSpan="2" Content="Verwijderen" HorizontalAlignment="Left" Margin="216,480,0,0" VerticalAlignment="Top" Width="85" Background="#FFE0381D" Foreground="White" Click="btDeleteUser_Click" Height="25"/>
+        <Button x:Name="btModifyUser" Grid.ColumnSpan="2" Content="Aanpassen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="108,480,0,0" Height="25" Background="#FFE0381D" Foreground="White" Click="btModifyUser_Click"/>
     </Grid>
 </Window>

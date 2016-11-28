@@ -150,6 +150,49 @@ namespace elearning2
             return tbl;
         }
 
+        public void ChangeUserInlogInfo(string sUsername, string sPassword, string sRol, string sInlogInfoId)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("UPDATE inloginfo SET usrname = @username, pass = @pass, rol = @rol WHERE id = @id", cnn);
+                cmd.Parameters.AddWithValue("@username", sUsername);
+                cmd.Parameters.AddWithValue("@pass", sPassword);
+                cmd.Parameters.AddWithValue("@rol", sRol);
+                cmd.Parameters.AddWithValue("@id", sInlogInfoId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public void ChangeUserUserInfo(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInfoId)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @naam, tussenvoegsel = @tussenvoegsel, achternaam = @achternaam, kamernummer = @kamernummer, telefoonnummer = @telefoonnummer, email = @email WHERE id = @id", cnn);
+                cmd.Parameters.AddWithValue("@naam", sVoornaam);
+                cmd.Parameters.AddWithValue("@tussenvoegsel", sTussenvoegsel);
+                cmd.Parameters.AddWithValue("@achternaam", sAchternaam);
+                cmd.Parameters.AddWithValue("@kamernummer", sKamerNummer);
+                cmd.Parameters.AddWithValue("@telefoonnummer", sTelefoonnummer);
+                cmd.Parameters.AddWithValue("@email", sEmail);
+                cmd.Parameters.AddWithValue("@id", sUserInfoId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         public void AddPerson(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInlogId)
         {
             try

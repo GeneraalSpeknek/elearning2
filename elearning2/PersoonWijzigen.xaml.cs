@@ -92,16 +92,8 @@ namespace elearning2
         {
             ValidateGegevensInput();
             if (ValidateGegevensInputBool == true)
-            {
-                string sVoornaam = tbVoornaam.Text;
-                string sTussenvoegsel = tbTussenvoegsel.Text;
-                string sAchternaam = tbAchternaam.Text;
-                string sTelefoonnummer = tbTelefoonNummer.Text;
-                string sEmail = tbEmail.Text;
-                string sKamerNummer = UdKamerNummer.Text;
-
+            {          
                 string sUsrname = tbGebruikersnaam.Text;
-                string sPass = tbPass.Password;
 
                 DataTable dtCheckUsername = new Dbs_Conn().CheckUserName(sUsrname);
                 if (dtCheckUsername != null)
@@ -109,6 +101,14 @@ namespace elearning2
                     int iRowsCheckUsername = dtCheckUsername.Rows.Count;
                     if (iRowsCheckUsername == 0)
                     {
+                        string sVoornaam = tbVoornaam.Text;
+                        string sTussenvoegsel = tbTussenvoegsel.Text;
+                        string sAchternaam = tbAchternaam.Text;
+                        string sTelefoonnummer = tbTelefoonNummer.Text;
+                        string sEmail = tbEmail.Text;
+                        string sKamerNummer = UdKamerNummer.Text;
+                        string sPass = tbPass.Password;
+
                         new Dbs_Conn().AddUser(sUsrname, sPass, sRol);
 
                         DataTable dtUserLoginId = new Dbs_Conn().GetUserLoginId(sUsrname);
@@ -242,6 +242,8 @@ namespace elearning2
                 tbEmail.Text = ((UserInfo)(lvUsers.SelectedItem)).email;
                 UdKamerNummer.Text = ((UserInfo)(lvUsers.SelectedItem)).kamernummer;
                 string inloginfoId = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
+                string UserInfoId = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+                MessageBox.Show("inloginfoId = "+inloginfoId+ " userinfoid="+UserInfoId);
 
                 DataTable dtUserCredentials = new Dbs_Conn().GetUserCredentials(inloginfoId);
                 if (dtUserCredentials != null)
@@ -302,6 +304,56 @@ namespace elearning2
 
                 cbRol.SelectedIndex = -1;
             }
+        }
+
+        private void btModifyUser_Click(object sender, RoutedEventArgs e)
+        {
+            ValidateGegevensInput();
+            if (ValidateGegevensInputBool == true)
+            {
+                string sUsernameChange = tbGebruikersnaam.Text;
+
+                DataTable dtCheckUsername = new Dbs_Conn().CheckUserName(sUsernameChange);
+                if (dtCheckUsername != null)
+                {
+                    int iRowsCheckUsername = dtCheckUsername.Rows.Count;
+                    if (iRowsCheckUsername == 0)
+                    {
+                        string sVoornaamChange = tbVoornaam.Text;
+                        string sTussenvoegselChange = tbTussenvoegsel.Text;
+                        string sAchternaamChange = tbAchternaam.Text;
+                        string sTelefoonnummerChange = tbTelefoonNummer.Text;
+                        string sEmailChange = tbEmail.Text;
+                        string sKamerNummerChange = UdKamerNummer.Text;
+
+                        string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+
+                        new Dbs_Conn().ChangeUserUserInfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
+
+                        string sPassChange = tbPass.Password;
+                        string inloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
+
+                        new Dbs_Conn().ChangeUserInlogInfo(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
+
+                        PopulateLVUsers();
+                    }
+                    else
+                    {
+                        MessageBox.Show("De gekozen gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Verplichte velden mogen niet leeg zijn! Verplichte velden kun je herkennen aan een '*'.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            //string sPass = tbPass.Password;
+
+            
+
+            
+
+            
         }
     }
 }
