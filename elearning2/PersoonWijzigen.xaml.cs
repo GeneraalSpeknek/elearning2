@@ -31,6 +31,10 @@ namespace elearning2
             InitializeComponent();
         }
 
+        private void PopulateListboxUsers()
+        {
+
+        }
         private void btAddPerson_Click(object sender, RoutedEventArgs e)
         {
 
@@ -68,5 +72,88 @@ namespace elearning2
             this.Close();
             CKM.Show();
         }
+
+        #region placeholdertext
+        /*  private void tbVoornaam_GotFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbVoornaam.Text == "Voornaam")
+              {
+                  tbVoornaam.Text = "";
+              }
+          }
+
+          private void tbVoornaam_LostFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbVoornaam.Text=="")
+              {
+                  tbVoornaam.Text = "Voornaam";
+              }
+          }
+          #endregion
+
+          private void tbTussenvoegsel_GotFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbTussenvoegsel.Text == "Tussenvoegsel")
+              {
+                  tbTussenvoegsel.Text="";
+              }
+          }
+
+          private void tbTussenvoegsel_LostFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbTussenvoegsel.Text=="")
+              {
+                  tbTussenvoegsel.Text = "Tussenvoegsel";
+              }
+          }
+
+          private void tbAchternaam_GotFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbAchternaam.Text == "Achternaam")
+              {
+                  tbAchternaam.Text = "";
+              }
+          }
+
+          private void tbAchternaam_LostFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbAchternaam.Text == "")
+              {
+                  tbAchternaam.Text = "Achternaam";
+              }
+          }
+
+          private void tbTelefoonNummer_GotFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbTelefoonNummer.Text == "Telefoonnummer")
+              {
+                  tbTelefoonNummer.Text = "";
+              }
+          }
+
+          private void tbTelefoonNummer_LostFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbTelefoonNummer.Text == "")
+              {
+                  tbTelefoonNummer.Text = "";
+              }
+          }
+
+          private void tbEmail_GotFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbEmail.Text == "E-mail")
+              {
+                  tbEmail.Text = "";
+              }
+          }
+
+          private void tbEmail_LostFocus(object sender, RoutedEventArgs e)
+          {
+              if (tbEmail.Text == "")
+              {
+                  tbEmail.Text = "E-mail";
+              }
+          }*/
+        #endregion
     }
 }

@@ -9,24 +9,25 @@
         ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="PersoonWijzigen" Height="350" Width="525">
+        Title="PersoonWijzigen" Height="525.49" Width="801.47">
     <Window.Background>
         <ImageBrush ImageSource="afbeeldingen/background.png"/>
     </Window.Background>
-    <Grid>
+    <Grid Margin="10,0,0,2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="39*"/>
             <ColumnDefinition Width="220*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btAddPerson" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,314,0,0" Background="#FFE0381D" Height="19" Foreground="White" Click="btAddPerson_Click" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbVoornaam" HorizontalAlignment="Left" Height="23" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbTussenvoegsel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Column="1" Margin="46.6,55,0,0"/>
-        <TextBox x:Name="tbAchternaam" HorizontalAlignment="Left" Height="23" Margin="0,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbTelefoonNummer" HorizontalAlignment="Left" Height="23" Margin="0,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Margin="0,137,0,0" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbGebruikersnaam" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="0,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
-        <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" Height="23" Width="245" RenderTransformOrigin="-4.688,-1.306" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="245" Margin="0,262,0,0">
+        <Button x:Name="btAddPerson" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,486,0,0" Background="#FFE0381D" Height="19" Foreground="White" Click="btAddPerson_Click"/>
+        <TextBox x:Name="tbVoornaam"  HorizontalAlignment="Left" Height="23" Margin="0,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" GotFocus="tbVoornaam_GotFocus" LostFocus="tbVoornaam_LostFocus"/>
+        <TextBox x:Name="tbTussenvoegsel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Column="1" Margin="10,91,0,0" GotFocus="tbTussenvoegsel_GotFocus" LostFocus="tbTussenvoegsel_LostFocus"/>
+        <TextBox x:Name="tbAchternaam"  HorizontalAlignment="Left" Height="23" Margin="2,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2" GotFocus="tbAchternaam_GotFocus" LostFocus="tbAchternaam_LostFocus"/>
+        <TextBox x:Name="tbTelefoonNummer"  HorizontalAlignment="Left" Height="23" Margin="1,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2" GotFocus="tbTelefoonNummer_GotFocus" LostFocus="tbTelefoonNummer_LostFocus"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Margin="0,230,0,0" Grid.ColumnSpan="2" GotFocus="tbEmail_GotFocus" LostFocus="tbEmail_LostFocus"/>
+        <TextBox x:Name="tbGebruikersnaam" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="0,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <xctk:IntegerUpDown Name="UdKamerNummer" Margin="0,276,0,0" Maximum="9999" Height="27" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="0,380,0,0" VerticalAlignment="Top" Height="23" Width="245" RenderTransformOrigin="-4.688,-1.306" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="245" Margin="2,424,0,0">
             <ComboBoxItem Content="Leerling" HorizontalAlignment="Left" Width="243.2" Selected="ComboBoxItem_Selected"/>
             <ComboBoxItem Content="Consulent" HorizontalAlignment="Left" Width="243.2" Selected="ComboBoxItem_Selected_1"/>
         </ComboBox>
@@ -35,5 +36,15 @@
                 <ImageBrush ImageSource="afbeeldingen/back.png"/>
             </Button.Background>
         </Button>
+        <ListBox x:Name="lbUsers" HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="250" Grid.Column="1" Margin="405,10,0,0"/>
+        <Label x:Name="label" Content="Voornaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,65,0,0" Foreground="White" Width="75"/>
+        <Label x:Name="label1" Content="Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,114,0,0" Foreground="White" Width="75"/>
+        <Label x:Name="label2" Content="Tussenvoegsel:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,65,0,0" Foreground="White" Width="91" Grid.Column="1"/>
+        <Label x:Name="label3" Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,158,0,0" Foreground="White" Width="106"/>
+        <Label x:Name="label4" Content="E-mail adres:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,204,0,0" Foreground="White" Width="106"/>
+        <Label x:Name="label5" Content="Kamernummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,250,0,0" Foreground="White" Width="106"/>
+        <Label x:Name="label6" Content="Gebruikersnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,304,0,0" Foreground="White" Width="106"/>
+        <Label x:Name="label7" Content="Wachtwoord:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,354,0,0" Foreground="White" Width="106"/>
+        <Label x:Name="label8" Content="Leerling of consulent:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,403,0,0" Foreground="White" Width="130" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
