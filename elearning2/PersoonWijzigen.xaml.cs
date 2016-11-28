@@ -26,14 +26,54 @@ namespace elearning2
         {
             public string Userinfoid { get; set; }
         }
+
+        struct UserInfo
+        {
+            public string UserId { get; set; }
+            public string voornaam { get; set; }
+            public string tussenvoegsel { get; set; }
+            public string achternaam { get; set; }
+            public string kamernummer { get; set; }
+            public string telefoonnummer { get; set; }
+            public string email { get; set; }
+            public string inloginfoId { get; set; }
+        }
+
+        struct UserCredentials
+        {
+            public string inlogId { get; set; }
+            public string UserName { get; set; }
+            public string Password { get; set; }
+            public string Rol { get; set; }
+
+        }
         public PersoonWijzigen()
         {
             InitializeComponent();
+            PopulateLVUsers();
         }
 
-        private void PopulateListboxUsers()
+        private void PopulateLVUsers()
         {
+            DataTable dtLesonderwerpen = new Dbs_Conn().GetUser();
+            if (dtLesonderwerpen != null)
+            {
+                List<UserInfo> lstUsers = new List<UserInfo>();
 
+                foreach (DataRow drLesonderwerpen in dtLesonderwerpen.Rows)
+                {
+                    lstUsers.Add(new UserInfo() { UserId = drLesonderwerpen[0].ToString(),
+                        voornaam = drLesonderwerpen[1].ToString(),
+                        tussenvoegsel = drLesonderwerpen[2].ToString(),
+                        achternaam = drLesonderwerpen[3].ToString(),
+                        kamernummer = drLesonderwerpen[4].ToString(),
+                        telefoonnummer = drLesonderwerpen[5].ToString(),
+                        email = drLesonderwerpen[6].ToString(),
+                        inloginfoId = drLesonderwerpen[7].ToString()
+                    });
+                }
+                lvUsers.ItemsSource = lstUsers;
+            }
         }
         private void btAddPerson_Click(object sender, RoutedEventArgs e)
         {
@@ -54,6 +94,8 @@ namespace elearning2
             string sInlogInfoId = Convert.ToString(dtUserLoginId.Rows[0]["id"]);
 
             new Dbs_Conn().AddPerson(sVoornaam, sTussenvoegsel, sAchternaam, sTelefoonnummer, sEmail, sKamerNummer, sInlogInfoId);
+
+            PopulateLVUsers();
         }
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -155,5 +197,39 @@ namespace elearning2
               }
           }*/
         #endregion
+
+        private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvUsers.SelectedItem != null)
+            {
+                tbVoornaam.Text = ((UserInfo)(lvUsers.SelectedItem)).voornaam;
+                tbTussenvoegsel.Text = ((UserInfo)(lvUsers.SelectedItem)).tussenvoegsel;
+                tbAchternaam.Text = ((UserInfo)(lvUsers.SelectedItem)).achternaam;
+                tbTelefoonNummer.Text = ((UserInfo)(lvUsers.SelectedItem)).telefoonnummer;
+                tbEmail.Text = ((UserInfo)(lvUsers.SelectedItem)).email;
+                UdKamerNummer.Text = ((UserInfo)(lvUsers.SelectedItem)).kamernummer;
+                string inloginfoId = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
+
+                DataTable dtUserCredentials = new Dbs_Conn().GetUserCredentials(inloginfoId);
+                if (dtUserCredentials != null)
+                {
+                    string sUserCredentialsId = Convert.ToString(dtUserCredentials.Rows[0]["id"]);
+                    string sUserCredentialsUsername = Convert.ToString(dtUserCredentials.Rows[0]["usrname"]);
+                    string sUserCredentialsPass = Convert.ToString(dtUserCredentials.Rows[0]["pass"]);
+                    string sUserCredentialsRol = Convert.ToString(dtUserCredentials.Rows[0]["rol"]);
+
+                    tbGebruikersnaam.Text = sUserCredentialsUsername;
+                    tbPass.Password = sUserCredentialsPass;
+                    if (sUserCredentialsRol == "leerling")
+                    {
+                        cbRol.SelectedIndex = 0;
+                    }
+                    else if (sUserCredentialsRol == "consulent")
+                    {
+                        cbRol.SelectedIndex = 1;
+                    }
+                }
+            }
+        }
     }
 }

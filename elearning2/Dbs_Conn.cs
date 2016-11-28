@@ -27,6 +27,43 @@ namespace elearning2
         }
 
         #region persoon aanpassen
+        public DataTable GetUserCredentials(string sInlogId)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM inloginfo WHERE id = '" + sInlogId + "'", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return tbl;
+        }
+
+        public DataTable GetUser()
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM userinfo", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            return tbl;
+        }
+
         public void AddUser(string sUsername, string sPass, string sRol)
         {
             try
