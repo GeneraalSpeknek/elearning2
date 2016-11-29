@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace elearning2
-{
+{ //string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInfoId
     class Dbs_Conn
     {
         string strcnn = "Server=localhost;Database=elearning;uid=root;pwd=;";
@@ -170,20 +170,14 @@ namespace elearning2
             }
         }
 
-        public void ChangeUserUserInfo(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInfoId)
+        public void ChangeUserUserinfo(string svoornaam, string sId)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @naam, tussenvoegsel = @tussenvoegsel, achternaam = @achternaam, kamernummer = @kamernummer, telefoonnummer = @telefoonnummer, email = @email WHERE id = @id", cnn);
-                cmd.Parameters.AddWithValue("@naam", sVoornaam);
-                cmd.Parameters.AddWithValue("@tussenvoegsel", sTussenvoegsel);
-                cmd.Parameters.AddWithValue("@achternaam", sAchternaam);
-                cmd.Parameters.AddWithValue("@kamernummer", sKamerNummer);
-                cmd.Parameters.AddWithValue("@telefoonnummer", sTelefoonnummer);
-                cmd.Parameters.AddWithValue("@email", sEmail);
-                cmd.Parameters.AddWithValue("@id", sUserInfoId);
+                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @voornaam WHERE id = @id", cnn);
+                cmd.Parameters.AddWithValue("@voornaam", svoornaam);
+                cmd.Parameters.AddWithValue("@achternaam", sId);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
             }
@@ -366,7 +360,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE vak SET naam = @vaknaam WHERE id = @Id", cnn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE vak SET naam = @vaknaam WHERE id = @id", cnn);
                 cmd.Parameters.AddWithValue("@vaknaam", vak);
                 cmd.Parameters.AddWithValue("@Id", IdVak);
                 cmd.ExecuteNonQuery();
