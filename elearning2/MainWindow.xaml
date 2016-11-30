@@ -33,13 +33,13 @@
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
         </Grid.Background>
         <TextBox x:Name="tbUsrName" TabIndex="0" Height="23" Margin="196,185,201,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center"/>
-        <Button x:Name="tbLogin" TabIndex="2" Margin="200,268,197.4,22" Content="Inloggen" Click="tbLogin_Click" Background="#FFE0381D" RenderTransformOrigin="0.5,0.5" Foreground="White" Cursor="Arrow" IsDefault="True" />
+        <Button x:Name="tbLogin" TabIndex="2" Margin="200,268,197.4,22" Content="Inloggen" Click="tbLogin_Click" RenderTransformOrigin="0.5,0.5" Foreground="White" Cursor="Arrow" IsDefault="True" Background="#FFE0381D" />
         <PasswordBox x:Name="tbPwd" TabIndex="1" VerticalAlignment="Top" Height="23" Margin="196,226,201,0" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btCloseApp" Margin="10,10,457,282" BorderThickness="0" Click="btCloseApp_Click">
+        <Button x:Name="btCloseApp" Margin="10,10,0,0" BorderThickness="0" Click="btCloseApp_Click" MaxWidth="50" MaxHeight="50" HorizontalAlignment="Left" Width="51" Height="52" VerticalAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="afbeeldingen/close.png"/>
             </Button.Background>
         </Button>
-        <Image x:Name="logo" Source="afbeeldingen/logo.png" Width="150" Height="150" Margin="181,35,186,157"></Image>
+        <Image x:Name="logo" Source="afbeeldingen/logo.png" Margin="182,36,186.4,158"/>
     </Grid>
 </Window>
