@@ -309,9 +309,9 @@ namespace elearning2
         private void btModifyUser_Click(object sender, RoutedEventArgs e)
         {
 
-            string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+            //string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+            int UserInfoIdChange = int.Parse(((UserInfo)(lvUsers.SelectedItem)).UserId);
             new Dbs_Conn().ChangeUserUserinfo(tbVoornaam.Text, UserInfoIdChange);
-            MessageBox.Show(UserInfoIdChange);
             /*ValidateGegevensInput();
             if (ValidateGegevensInputBool == true)
             {

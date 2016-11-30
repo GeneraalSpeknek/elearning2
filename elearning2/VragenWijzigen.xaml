@@ -8,10 +8,11 @@
         xmlns:local="clr-namespace:elearning2"
         mc:Ignorable="d"
         Title="VragenWijzigen" Height="330.916" Width="459.16">
-    <Grid>
+    <Grid Margin="0,0,-146.2,3.8">
         <Grid.Background>
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
         </Grid.Background>
+        <ComboBox x:Name="cbLesonderwerp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,35,0,0"/>
 
     </Grid>
 </Window>

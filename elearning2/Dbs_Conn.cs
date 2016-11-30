@@ -170,14 +170,14 @@ namespace elearning2
             }
         }
 
-        public void ChangeUserUserinfo(string svoornaam, string sId)
+        public void ChangeUserUserinfo(string svoornaam, int sId)
         {
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @voornaam WHERE userinfo.id = @id", cnn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @voornaam WHERE id = @id", cnn);
                 cmd.Parameters.AddWithValue("@voornaam", svoornaam);
-                cmd.Parameters.AddWithValue("@achternaam", sId);
+                cmd.Parameters.AddWithValue("@id", sId);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
             }

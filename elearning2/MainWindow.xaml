@@ -33,7 +33,7 @@
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
         </Grid.Background>
         <TextBox x:Name="tbUsrName" TabIndex="0" Height="23" Margin="196,185,201,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center"/>
-        <Button x:Name="tbLogin" TabIndex="2" Margin="196,268,201,22" Content="Inloggen" Click="tbLogin_Click" Background="#FFE0381D" RenderTransformOrigin="0.5,0.5" Foreground="White" Cursor="Arrow" IsDefault="True" />
+        <Button x:Name="tbLogin" TabIndex="2" Margin="200,268,197.4,22" Content="Inloggen" Click="tbLogin_Click" Background="#FFE0381D" RenderTransformOrigin="0.5,0.5" Foreground="White" Cursor="Arrow" IsDefault="True" />
         <PasswordBox x:Name="tbPwd" TabIndex="1" VerticalAlignment="Top" Height="23" Margin="196,226,201,0" HorizontalContentAlignment="Center"/>
         <Button x:Name="btCloseApp" Margin="10,10,457,282" BorderThickness="0" Click="btCloseApp_Click">
             <Button.Background>
