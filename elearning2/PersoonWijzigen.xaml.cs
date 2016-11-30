@@ -311,6 +311,7 @@ namespace elearning2
 
             string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
             new Dbs_Conn().ChangeUserUserinfo(tbVoornaam.Text, UserInfoIdChange);
+            MessageBox.Show(UserInfoIdChange);
             /*ValidateGegevensInput();
             if (ValidateGegevensInputBool == true)
             {

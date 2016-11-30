@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="NumericUpDown">
       <HintPath>..\..\..\NumericUpDown.dll</HintPath>
     </Reference>
@@ -94,6 +94,9 @@
     <Compile Include="VakWijzigen.xaml.cs">
       <DependentUpon>VakWijzigen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VragenWijzigen.xaml.cs">
+      <DependentUpon>VragenWijzigen.xaml</DependentUpon>
+    </Compile>
     <Page Include="ConsulentenKeuzeMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VakWijzigen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VragenWijzigen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

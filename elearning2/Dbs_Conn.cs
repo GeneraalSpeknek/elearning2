@@ -175,7 +175,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @voornaam WHERE id = @id", cnn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @voornaam WHERE userinfo.id = @id", cnn);
                 cmd.Parameters.AddWithValue("@voornaam", svoornaam);
                 cmd.Parameters.AddWithValue("@achternaam", sId);
                 cmd.ExecuteNonQuery();
