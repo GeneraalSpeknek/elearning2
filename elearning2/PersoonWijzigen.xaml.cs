@@ -325,13 +325,16 @@ namespace elearning2
                 if (ValidateGegevensInputBool == true)
                 {
                     string sUsernameChange = tbGebruikersnaam.Text;
+                    int iinloginfoIdChange = int.Parse(((UserInfo)(lvUsers.SelectedItem)).inloginfoId);
 
                     DataTable dtCheckUsername = new Dbs_Conn().CheckUserName(sUsernameChange);
                     if (dtCheckUsername != null)
                     {
-                        int iRowsCheckUsername = dtCheckUsername.Rows.Count;
-                        if (iRowsCheckUsername == 0)
+                        int iCheckUsername = Convert.ToInt32(dtCheckUsername.Rows[0]["id"]);
+                        int iCheckUsernameRows = dtCheckUsername.Rows.Count;
+                        if (iCheckUsername == iinloginfoIdChange || iCheckUsernameRows == 0)
                         {
+                            string sinloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
                             string sVoornaamChange = tbVoornaam.Text;
                             string sTussenvoegselChange = tbTussenvoegsel.Text;
                             string sAchternaamChange = tbAchternaam.Text;
@@ -344,8 +347,7 @@ namespace elearning2
                             new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
 
                             string sPassChange = tbPass.Password;
-                            string inloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
-                            new Dbs_Conn().ChangeInlogGegevens(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
+                            new Dbs_Conn().ChangeInlogGegevens(sUsernameChange, sPassChange, sRol, sinloginfoIdChange);
                             //new Dbs_Conn().ChangeUserInlogInfo(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
 
                             PopulateLVUsers();
@@ -364,7 +366,7 @@ namespace elearning2
             }
             else
             {
-                MessageBox.Show("Selecteer een gebruiker die je wil aanpassen!.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Selecteer een gebruiker die je wil aanpassen!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
