@@ -310,17 +310,6 @@ namespace elearning2
         {
             if (lvUsers.SelectedItem != null)
             {
-                /*string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
-            string sVoornaamChange = tbVoornaam.Text;
-            string sTussenvoegselChange = tbTussenvoegsel.Text;
-            string sAchternaamChange = tbAchternaam.Text;
-            string sTelefoonnummerChange = tbTelefoonNummer.Text;
-            string sEmailChange = tbEmail.Text;
-            string sKamerNummerChange = UdKamerNummer.Text;
-
-            //int UserInfoIdChange = int.Parse(((UserInfo)(lvUsers.SelectedItem)).UserId);
-            new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
-            */
                 ValidateGegevensInput();
                 if (ValidateGegevensInputBool == true)
                 {

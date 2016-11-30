@@ -7,12 +7,17 @@
         WindowStyle="None"
         xmlns:local="clr-namespace:elearning2"
         mc:Ignorable="d"
-        Title="VragenWijzigen" Height="330.916" Width="459.16">
-    <Grid Margin="0,0,-146.2,3.8">
+        Title="VragenWijzigen" Height="330.916" Width="752.072">
+    <Grid Margin="0,0,-8,-85">
         <Grid.Background>
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
         </Grid.Background>
-        <ComboBox x:Name="cbLesonderwerp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,35,0,0"/>
-
+        <ComboBox x:Name="cbKiesVak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="10,35,0,0"/>
+        <Label x:Name="label1" Content="Kies van welk vak je de vraag wilt wijzigen:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="305" Foreground="White"/>
+        <ComboBox x:Name="cbLesonderwerpKiezen" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="305"/>
+        <Label x:Name="label2" Content="Kies van welk lesonderwerp je het de vraag wilt wijzigen:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="305" Foreground="White"/>
+        <Label x:Name="label3" Content="Kies van welke les je een vraag wilt wijzigen:" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305"/>
+        <ComboBox x:Name="cbLesKiezen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="10,138,0,0"/>
+        <ListBox x:Name="lbVragen" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="383" Margin="359,10,0,0"/>
     </Grid>
 </Window>
