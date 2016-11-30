@@ -308,8 +308,9 @@ namespace elearning2
 
         private void btModifyUser_Click(object sender, RoutedEventArgs e)
         {
-
-            /*string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+            if (lvUsers.SelectedItem != null)
+            {
+                /*string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
             string sVoornaamChange = tbVoornaam.Text;
             string sTussenvoegselChange = tbTussenvoegsel.Text;
             string sAchternaamChange = tbAchternaam.Text;
@@ -320,46 +321,51 @@ namespace elearning2
             //int UserInfoIdChange = int.Parse(((UserInfo)(lvUsers.SelectedItem)).UserId);
             new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
             */
-            ValidateGegevensInput();
-            if (ValidateGegevensInputBool == true)
-            {
-                string sUsernameChange = tbGebruikersnaam.Text;
-
-                DataTable dtCheckUsername = new Dbs_Conn().CheckUserName(sUsernameChange);
-                if (dtCheckUsername != null)
+                ValidateGegevensInput();
+                if (ValidateGegevensInputBool == true)
                 {
-                    int iRowsCheckUsername = dtCheckUsername.Rows.Count;
-                    if (iRowsCheckUsername == 0)
+                    string sUsernameChange = tbGebruikersnaam.Text;
+
+                    DataTable dtCheckUsername = new Dbs_Conn().CheckUserName(sUsernameChange);
+                    if (dtCheckUsername != null)
                     {
-                        string sVoornaamChange = tbVoornaam.Text;
-                        string sTussenvoegselChange = tbTussenvoegsel.Text;
-                        string sAchternaamChange = tbAchternaam.Text;
-                        string sTelefoonnummerChange = tbTelefoonNummer.Text;
-                        string sEmailChange = tbEmail.Text;
-                        string sKamerNummerChange = UdKamerNummer.Text;
+                        int iRowsCheckUsername = dtCheckUsername.Rows.Count;
+                        if (iRowsCheckUsername == 0)
+                        {
+                            string sVoornaamChange = tbVoornaam.Text;
+                            string sTussenvoegselChange = tbTussenvoegsel.Text;
+                            string sAchternaamChange = tbAchternaam.Text;
+                            string sTelefoonnummerChange = tbTelefoonNummer.Text;
+                            string sEmailChange = tbEmail.Text;
+                            string sKamerNummerChange = UdKamerNummer.Text;
 
-                        string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+                            string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
 
-                        new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
+                            new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
 
-                        string sPassChange = tbPass.Password;
-                        string inloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
-                        new Dbs_Conn().ChangeInlogGegevens(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
-                        //new Dbs_Conn().ChangeUserInlogInfo(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
+                            string sPassChange = tbPass.Password;
+                            string inloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
+                            new Dbs_Conn().ChangeInlogGegevens(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
+                            //new Dbs_Conn().ChangeUserInlogInfo(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
 
-                        PopulateLVUsers();
-                    }
-                    else
-                    {
-                        MessageBox.Show("De gekozen gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                            PopulateLVUsers();
+                        }
+                        else
+                        {
+                            MessageBox.Show("De gekozen gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Verplichte velden mogen niet leeg zijn! Verplichte velden kun je herkennen aan een '*'.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                //string sPass = tbPass.Password;
             }
             else
             {
-                MessageBox.Show("Verplichte velden mogen niet leeg zijn! Verplichte velden kun je herkennen aan een '*'.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Selecteer een gebruiker die je wil aanpassen!.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //string sPass = tbPass.Password;
         }
     }
 }
