@@ -309,10 +309,18 @@ namespace elearning2
         private void btModifyUser_Click(object sender, RoutedEventArgs e)
         {
 
-            //string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
-            int UserInfoIdChange = int.Parse(((UserInfo)(lvUsers.SelectedItem)).UserId);
-            new Dbs_Conn().ChangeUserUserinfo(tbVoornaam.Text, UserInfoIdChange);
-            /*ValidateGegevensInput();
+            /*string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
+            string sVoornaamChange = tbVoornaam.Text;
+            string sTussenvoegselChange = tbTussenvoegsel.Text;
+            string sAchternaamChange = tbAchternaam.Text;
+            string sTelefoonnummerChange = tbTelefoonNummer.Text;
+            string sEmailChange = tbEmail.Text;
+            string sKamerNummerChange = UdKamerNummer.Text;
+
+            //int UserInfoIdChange = int.Parse(((UserInfo)(lvUsers.SelectedItem)).UserId);
+            new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
+            */
+            ValidateGegevensInput();
             if (ValidateGegevensInputBool == true)
             {
                 string sUsernameChange = tbGebruikersnaam.Text;
@@ -332,7 +340,7 @@ namespace elearning2
 
                         string UserInfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).UserId;
 
-                        new Dbs_Conn().ChangeUserUserInfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
+                        new Dbs_Conn().ChangeUserUserinfo(sVoornaamChange, sTussenvoegselChange, sAchternaamChange, sTelefoonnummerChange, sEmailChange, sKamerNummerChange, UserInfoIdChange);
 
                         string sPassChange = tbPass.Password;
                         string inloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
@@ -351,7 +359,7 @@ namespace elearning2
             {
                 MessageBox.Show("Verplichte velden mogen niet leeg zijn! Verplichte velden kun je herkennen aan een '*'.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //string sPass = tbPass.Password;*/
+            //string sPass = tbPass.Password;
         }
     }
 }

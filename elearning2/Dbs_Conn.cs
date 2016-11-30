@@ -156,7 +156,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE inloginfo SET usrname = @username, pass = @pass, rol = @rol WHERE id = @id", cnn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE inloginfo SET usrname=@username,pass=@pass,rol=@rol WHERE id = @id", cnn);
                 cmd.Parameters.AddWithValue("@username", sUsername);
                 cmd.Parameters.AddWithValue("@pass", sPassword);
                 cmd.Parameters.AddWithValue("@rol", sRol);
@@ -170,14 +170,19 @@ namespace elearning2
             }
         }
 
-        public void ChangeUserUserinfo(string svoornaam, int sId)
+        public void ChangeUserUserinfo(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInfoId)
         {
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam = @voornaam WHERE id = @id", cnn);
-                cmd.Parameters.AddWithValue("@voornaam", svoornaam);
-                cmd.Parameters.AddWithValue("@id", sId);
+                MySqlCommand cmd = new MySqlCommand("UPDATE userinfo SET voornaam=@voornaam,tussenvoegsel=@tussenvoegsel,achternaam=@achternaam,kamernummer=@kamernummer,telefoonnummer=@telefoonnummer,email=@email WHERE id = @id", cnn);
+                cmd.Parameters.AddWithValue("@voornaam", sVoornaam);
+                cmd.Parameters.AddWithValue("@tussenvoegsel", sTussenvoegsel);
+                cmd.Parameters.AddWithValue("@achternaam", sAchternaam);
+                cmd.Parameters.AddWithValue("@telefoonnummer", sTelefoonnummer);
+                cmd.Parameters.AddWithValue("@email", sEmail);
+                cmd.Parameters.AddWithValue("@kamernummer", sKamerNummer);
+                cmd.Parameters.AddWithValue("@id", sUserInfoId);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
             }
