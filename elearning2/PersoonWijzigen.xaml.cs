@@ -344,8 +344,8 @@ namespace elearning2
 
                         string sPassChange = tbPass.Password;
                         string inloginfoIdChange = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
-
-                        new Dbs_Conn().ChangeUserInlogInfo(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
+                        new Dbs_Conn().ChangeInlogGegevens(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
+                        //new Dbs_Conn().ChangeUserInlogInfo(sUsernameChange, sPassChange, sRol, inloginfoIdChange);
 
                         PopulateLVUsers();
                     }

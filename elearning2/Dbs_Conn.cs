@@ -150,13 +150,12 @@ namespace elearning2
             return tbl;
         }
 
-        public void ChangeUserInlogInfo(string sUsername, string sPassword, string sRol, string sInlogInfoId)
+        public void ChangeInlogGegevens(string sUsername, string sPassword, string sRol, string sInlogInfoId)
         {
-            MySqlConnection cnn = new MySqlConnection(strcnn);
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE inloginfo SET usrname=@username,pass=@pass,rol=@rol WHERE id = @id", cnn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `inloginfo` SET `usrname`= @username,`pass`= @pass,`rol`= @rol WHERE `id`= @id", cnn);
                 cmd.Parameters.AddWithValue("@username", sUsername);
                 cmd.Parameters.AddWithValue("@pass", sPassword);
                 cmd.Parameters.AddWithValue("@rol", sRol);
@@ -169,6 +168,26 @@ namespace elearning2
 
             }
         }
+
+        /*public void ChangeUserInlogInfo(string sUsername, string sPassword, string sRol, string sInlogInfoId)
+        {
+            MySqlConnection cnn = new MySqlConnection(strcnn);
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("UPDATE `inloginfo` SET `usrname`='test1',`pass`='test2',`rol`='test3' WHERE `id`=16", cnn);
+                cmd.Parameters.AddWithValue("@username", sUsername);
+                cmd.Parameters.AddWithValue("@pass", sPassword);
+                cmd.Parameters.AddWithValue("@rol", sRol);
+                cmd.Parameters.AddWithValue("@id", sInlogInfoId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }*/
 
         public void ChangeUserUserinfo(string sVoornaam, string sTussenvoegsel, string sAchternaam, string sTelefoonnummer, string sEmail, string sKamerNummer, string sUserInfoId)
         {
