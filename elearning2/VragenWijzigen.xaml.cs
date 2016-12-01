@@ -76,7 +76,7 @@ namespace elearning2
 
             foreach (DataRow drLessen in dtLessen.Rows)
             {
-                lstLessen.Add(new Lessen() { LesId = drLessen[0].ToString(), LesNaam = drLessen[1].ToString() });
+                lstLessen.Add(new Lessen() { LesId = drLessen[0].ToString(), LesNaam = drLessen[2].ToString() });
             }
             cbLesKiezen.ItemsSource = lstLessen;
         }
@@ -96,7 +96,7 @@ namespace elearning2
             if (cbLesonderwerpKiezen.SelectedItem != null)
             {
                 KiesLesonderwerpId = Int32.Parse(((LesOnderwerpen)(cbLesonderwerpKiezen.SelectedItem)).LesOnderwerpId);
-                FillCBLesonderwerpen();
+                FillCBLessen();
                 cbLesKiezen.IsEnabled = true;
             }
         }
