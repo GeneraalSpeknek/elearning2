@@ -26,6 +26,50 @@ namespace elearning2
             }
         }
 
+        #region VragenWijzigen
+
+        public DataTable GetLessenVW(int LesonderwerpId)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM les WHERE lesonderwerpid = @id", cnn);
+                cmd.Parameters.AddWithValue("@Id", LesonderwerpId);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            return tbl;
+        }
+
+        public DataTable GetLesonderwerpenVW(int VakId)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM lesonderwerp WHERE vakid = @id", cnn);
+                cmd.Parameters.AddWithValue("@Id", VakId);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            return tbl;
+        }
+
+        #endregion
+
         #region persoon aanpassen
         public DataTable CheckUserName(string sUserName)
         {

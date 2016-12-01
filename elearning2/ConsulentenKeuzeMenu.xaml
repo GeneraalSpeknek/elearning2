@@ -22,6 +22,6 @@
         </Button>
         <Button x:Name="btModifyLesonderwerp" Content="Lesonderwerp wijzigen" HorizontalAlignment="Left" Margin="185,215,0,0" VerticalAlignment="Top" Width="138" Background="#FFE0381D" Foreground="White" Height="66" Click="btModifyLesonderwerp_Click"/>
         <Button x:Name="btPersoonWijzigen" Content="Personen wijzigen" HorizontalAlignment="Left" Margin="350,215,0,0" VerticalAlignment="Top" Width="138" Height="67" Background="#FFE0381D" Foreground="White" Click="btPersoonWijzigen_Click"/>
-        <Button x:Name="btVraagWijzigen" Content="Vragen wijzigen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Margin="185,130,0,0" Height="67" Background="#FFE0381D" Foreground="White"/>
+        <Button x:Name="btVraagWijzigen" Content="Vragen wijzigen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Margin="185,130,0,0" Height="67" Background="#FFE0381D" Foreground="White" Click="btVraagWijzigen_Click"/>
     </Grid>
 </Window>

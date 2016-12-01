@@ -53,5 +53,12 @@ namespace elearning2
             this.Close();
             PWForm.Show();
         }
+
+        private void btVraagWijzigen_Click(object sender, RoutedEventArgs e)
+        {
+            VragenWijzigen VW = new VragenWijzigen();
+            this.Close();
+            VW.Show();
+        }
     }
 }
