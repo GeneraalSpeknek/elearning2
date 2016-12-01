@@ -124,6 +124,11 @@ namespace elearning2
             {
                 KiesVakId = Int32.Parse(((Vakken)(cbKiesVak.SelectedItem)).vakId);
                 FillCBLesonderwerpen();
+                if (cbLesKiezen.IsEnabled != false)
+                {
+                    cbLesKiezen.IsEnabled = false;
+                    cbLesKiezen.SelectedIndex = -1;
+                }
             }  
         }
 
