@@ -74,6 +74,15 @@ namespace elearning2
                 lstLesOnderwerpen.Add(new LesOnderwerpen() { LesOnderwerpId = drLesonderwerpen[0].ToString(), LesonderwerpNaam = drLesonderwerpen[1].ToString() });
             }
             cbLesonderwerpKiezen.ItemsSource = lstLesOnderwerpen;
+            if (lstLesOnderwerpen.Count == 0)
+            {
+                cbLesonderwerpKiezen.IsEnabled = false;
+                MessageBox.Show("Bij het gekozen vak bestaan nog geen lesonderwerpen, voeg lesonderwerpen toe in het menu 'lesonderwerpen wijzigen', of kies een ander vak.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                cbLesonderwerpKiezen.IsEnabled = true;
+            }
         }
 
         private void FillCBLessen()
@@ -86,6 +95,15 @@ namespace elearning2
                 lstLessen.Add(new Lessen() { LesId = drLessen[0].ToString(), LesNaam = drLessen[2].ToString() });
             }
             cbLesKiezen.ItemsSource = lstLessen;
+            if (lstLessen.Count == 0)
+            {
+                cbLesKiezen.IsEnabled = false;
+                MessageBox.Show("Bij het gekozen lesonderwerp bestaan nog geen lessen, voeg lessen toe in het menu 'lessen wijzigen', of kies een ander lesonderwerp.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                cbLesKiezen.IsEnabled = true;
+            }
         }
 
         private void FillLBVragen()
@@ -106,7 +124,6 @@ namespace elearning2
             {
                 KiesVakId = Int32.Parse(((Vakken)(cbKiesVak.SelectedItem)).vakId);
                 FillCBLesonderwerpen();
-                cbLesonderwerpKiezen.IsEnabled = true;
             }  
         }
 
@@ -116,7 +133,6 @@ namespace elearning2
             {
                 KiesLesonderwerpId = Int32.Parse(((LesOnderwerpen)(cbLesonderwerpKiezen.SelectedItem)).LesOnderwerpId);
                 FillCBLessen();
-                cbLesKiezen.IsEnabled = true;
             }
         }
 
