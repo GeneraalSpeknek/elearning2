@@ -28,6 +28,26 @@ namespace elearning2
 
         #region VragenWijzigen
 
+        public DataTable GetVragenVW(int LesId)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM vragen WHERE lesonderwerpid = @id", cnn);
+                cmd.Parameters.AddWithValue("@Id", LesId);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            return tbl;
+        }
+
         public DataTable GetLessenVW(int LesonderwerpId)
         {
             DataTable tbl = new DataTable();

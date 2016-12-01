@@ -22,6 +22,7 @@ namespace elearning2
     {
         int KiesVakId = 0;
         int KiesLesonderwerpId = 0;
+        int KiesLesId = 0;
         struct Vakken
         {
             public string vakId { get; set; }
@@ -32,6 +33,12 @@ namespace elearning2
         {
             public string LesOnderwerpId { get; set; }
             public string LesonderwerpNaam { get; set; }
+        }
+
+        struct Vragen
+        {
+            public string VraagId { get; set; }
+            public string VraagTekst { get; set; }
         }
 
         struct Lessen
@@ -81,6 +88,18 @@ namespace elearning2
             cbLesKiezen.ItemsSource = lstLessen;
         }
 
+        private void FillLBVragen()
+        {
+            DataTable dtVragen = new Dbs_Conn().GetVragenVW(KiesLesId);
+            List<Vragen> lstVragen = new List<Vragen>();
+
+            foreach (DataRow drVragen in dtVragen.Rows)
+            {
+                lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[1].ToString() });
+            }
+            lbVragen.ItemsSource = lstVragen;
+        }
+
         private void cbKiesVak_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cbKiesVak.SelectedItem != null)
@@ -98,6 +117,17 @@ namespace elearning2
                 KiesLesonderwerpId = Int32.Parse(((LesOnderwerpen)(cbLesonderwerpKiezen.SelectedItem)).LesOnderwerpId);
                 FillCBLessen();
                 cbLesKiezen.IsEnabled = true;
+            }
+        }
+
+        private void cbLesKiezen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbLesKiezen.SelectedItem != null)
+            {
+                KiesLesId = Int32.Parse(((Lessen)(cbLesKiezen.SelectedItem)).LesId);
+                FillLBVragen();
+                string test = KiesLesId.ToString();
+                MessageBox.Show(test);
             }
         }
     }
