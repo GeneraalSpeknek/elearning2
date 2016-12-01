@@ -126,8 +126,6 @@ namespace elearning2
             {
                 KiesLesId = Int32.Parse(((Lessen)(cbLesKiezen.SelectedItem)).LesId);
                 FillLBVragen();
-                string test = KiesLesId.ToString();
-                MessageBox.Show(test);
             }
         }
     }

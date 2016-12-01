@@ -34,7 +34,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM vragen WHERE lesonderwerpid = @id", cnn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM vragen WHERE lesid = @id", cnn);
                 cmd.Parameters.AddWithValue("@Id", LesId);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 tbl.Load(rdr);
