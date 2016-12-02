@@ -33,6 +33,8 @@ namespace elearning2
         {
             InitializeComponent();
             PopulateLB();
+            Height = SystemParameters.MaximizedPrimaryScreenHeight;
+            Width = SystemParameters.MaximizedPrimaryScreenWidth;
         }
 
         private void PopulateLB()

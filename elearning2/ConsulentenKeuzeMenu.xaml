@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:elearning2"
         WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="NoResize"
          WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Consulent" Height="317.647" Width="510.084" Icon="afbeeldingen/logo.png">
+        Title="Consulent" Height="750" Width="1000" Icon="afbeeldingen/logo.png">
     <Grid Margin="0,0,-8,0">
         <Grid.Background>
             <ImageBrush ImageSource="afbeeldingen/background.png"/>
         </Grid.Background>
-        <Button x:Name="btModifyVak" Content="Vak wijzigen" HorizontalAlignment="Right" Margin="0,215,362,29" Width="138" Click="btAddVak_Click" Background="#FFE0381D" Foreground="White">
-        </Button>
+        <Button x:Name="btModifyVak" Content="Vak wijzigen" Margin="0,216,354,0" Click="btAddVak_Click" Background="#FFE0381D" Foreground="White" Height="66" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
         <Button x:Name="btLogout"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="46" Height="50" BorderThickness="0" Margin="0,10,0,0" Click="button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="afbeeldingen/orange-logout-256.png"/>

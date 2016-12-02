@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:elearning2"
         MinHeight="350" MinWidth="525"
+        
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
         mc:Ignorable="d"
