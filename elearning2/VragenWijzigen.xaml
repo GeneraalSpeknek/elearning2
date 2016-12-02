@@ -25,7 +25,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Label x:Name="label1" Content="Kies van welk vak je de vraag wilt wijzigen:" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="305" Foreground="White" Height="26"/>
-        <xctk:IntegerUpDown Name="UdKamerNummer" Margin="10,417,888.6,0" Maximum="10" Minimum="2" Height="40" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown Name="UdAantalAntwoorden" Margin="10,417,889,0" Maximum="10" Minimum="2" Height="29" VerticalAlignment="Top" ValueChanged="UdAantalAntwoorden_ValueChanged"/>
         <ComboBox x:Name="cbLesonderwerpKiezen" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="305" Height="22" SelectionChanged="cbLesonderwerpKiezen_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -59,7 +59,7 @@
                 <ImageBrush ImageSource="afbeeldingen/back.png"/>
             </Button.Background>
         </Button>
-        <ListView x:Name="lvVragen" HorizontalAlignment="Left" Height="722" VerticalAlignment="Top" Width="565" Margin="417,10,0,0">
+        <ListView x:Name="lvVragen" HorizontalAlignment="Left" Height="722" VerticalAlignment="Top" Width="565" Margin="417,10,0,0" SelectionChanged="lvVragen_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Naam" Width="115" DisplayMemberBinding="{Binding VraagNaam}"/>
@@ -67,5 +67,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <ComboBox x:Name="cbWelkAntwoordLetter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="10,475,0,0"/>
     </Grid>
 </Window>

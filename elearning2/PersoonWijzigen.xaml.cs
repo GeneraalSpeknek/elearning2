@@ -243,7 +243,6 @@ namespace elearning2
                 UdKamerNummer.Text = ((UserInfo)(lvUsers.SelectedItem)).kamernummer;
                 string inloginfoId = ((UserInfo)(lvUsers.SelectedItem)).inloginfoId;
                 string UserInfoId = ((UserInfo)(lvUsers.SelectedItem)).UserId;
-                MessageBox.Show("inloginfoId = "+inloginfoId+ " userinfoid="+UserInfoId);
 
                 DataTable dtUserCredentials = new Dbs_Conn().GetUserCredentials(inloginfoId);
                 if (dtUserCredentials != null)

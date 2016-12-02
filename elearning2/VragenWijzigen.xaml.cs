@@ -23,6 +23,8 @@ namespace elearning2
         int KiesVakId = 0;
         int KiesLesonderwerpId = 0;
         int KiesLesId = 0;
+
+        string[] ArrayAntwoorden = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" };
         struct Vakken
         {
             public string vakId { get; set; }
@@ -187,6 +189,25 @@ namespace elearning2
             ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
             this.Close();
             CKM.Show();
+        }
+
+        private void lvVragen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvVragen.SelectedItem != null)
+            {
+                int VraagId = int.Parse(((Vragen)(lvVragen.SelectedItem)).VraagId);
+            }
+        }
+        private void UdAantalAntwoorden_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            this.cbWelkAntwoordLetter.Items.Clear();
+            int iAantalAntwoorden = Convert.ToInt32(UdAantalAntwoorden.Value);
+            int iCounterAntwoorden = 0;
+            while (iCounterAntwoorden != iAantalAntwoorden)
+            {
+                cbWelkAntwoordLetter.Items.Add(ArrayAntwoorden[iCounterAntwoorden]);
+                iCounterAntwoorden++;
+            }
         }
     }
 }

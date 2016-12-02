@@ -25,6 +25,7 @@ namespace elearning2
 
         string IdLesonderwerp = "";
         string SelectedLesonderwerpNaam = "";
+        
         struct Vakken
         {
             public string vakId { get; set; }
@@ -41,7 +42,6 @@ namespace elearning2
             InitializeComponent();
             FillComboBoxVakken();
             FillLBLesonderwerpen();
-
         }
 
         private void FillLBLesonderwerpen()
