@@ -114,7 +114,7 @@ namespace elearning2
 
             foreach (DataRow drVragen in dtVragen.Rows)
             {
-                lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[4].ToString(), VraagNaam = drVragen[4].ToString() });
+                lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[3].ToString(), VraagNaam = drVragen[1].ToString() });
             }
             lvVragen.ItemsSource = lstVragen;
         }
