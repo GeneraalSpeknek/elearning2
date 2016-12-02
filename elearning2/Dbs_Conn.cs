@@ -28,6 +28,24 @@ namespace elearning2
 
         #region VragenWijzigen
 
+        public void AddVraag(string sVraag, string sNaam, int LesId)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO vragen (naam,lesid,vraag) VALUES (@naam,@lesid,@vraag)", cnn);
+                cmd.Parameters.AddWithValue("@vraag", sVraag);
+                cmd.Parameters.AddWithValue("@naam", sNaam);
+                cmd.Parameters.AddWithValue("@lesid", LesId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         public DataTable GetVragenVW(int LesId)
         {
             DataTable tbl = new DataTable();

@@ -149,5 +149,36 @@ namespace elearning2
                 FillLBVragen();
             }
         }
+
+        private void btAddVraag_Click(object sender, RoutedEventArgs e)
+        {
+            string sVraagTekst = new TextRange(rtbVraag.Document.ContentStart, rtbVraag.Document.ContentEnd).Text;
+            string sVraagNaam = tbVraagNaam.Text;
+            bool CheckrtbVraag = false;
+            if (string.IsNullOrWhiteSpace(sVraagTekst) == true)
+            {
+                CheckrtbVraag = true;
+            }
+            else
+            {
+                CheckrtbVraag = false;
+            }
+            if (CheckrtbVraag == false)
+            {
+                if (sVraagNaam != "")
+                {
+                    new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
+                }
+                else
+                {
+                    MessageBox.Show("Het veld waarin de naam van de vraag ingevuld moet worden mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            
+            else
+            {
+                MessageBox.Show("Het veld waarin de vraag ingevuld moet worden mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
