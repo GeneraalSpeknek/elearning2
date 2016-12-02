@@ -53,9 +53,30 @@ namespace elearning2
         {
             InitializeComponent();
             FillCBKiesVak();
+            TBInvisibleAntwoorden();
+            DisableInputFields();
+        }
+
+        private void DisableInputFields()
+        {
             cbLesonderwerpKiezen.IsEnabled = false;
             cbLesKiezen.IsEnabled = false;
-            TBInvisibleAntwoorden();
+            tbAntwoordA.Visibility = System.Windows.Visibility.Visible;
+            rtbVraag.IsEnabled = false;
+            tbVraagNaam.IsEnabled = false;
+            UdAantalAntwoorden.IsEnabled = false;
+            tbAntwoordA.IsEnabled = false;
+            cbWelkAntwoordLetter.IsEnabled = false;
+            cbxA.IsEnabled = false;
+            cbxB.IsEnabled = false;
+            cbxC.IsEnabled = false;
+            cbxD.IsEnabled = false;
+            cbxE.IsEnabled = false;
+            cbxF.IsEnabled = false;
+            cbxG.IsEnabled = false;
+            cbxH.IsEnabled = false;
+            cbxI.IsEnabled = false;
+            cbxJ.IsEnabled = false;
         }
         private void FillCBKiesVak()
         {
@@ -220,6 +241,7 @@ namespace elearning2
             {
                 KiesLesId = Int32.Parse(((Lessen)(cbLesKiezen.SelectedItem)).LesId);
                 FillLVVragen();
+                rtbVraag.IsEnabled = true;
             }
         }
 
@@ -283,6 +305,19 @@ namespace elearning2
         private void cbWelkAntwoordLetter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TBInvisibleAntwoorden();
+        }
+
+        private void rtbVraag_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string sVraagTekst = new TextRange(rtbVraag.Document.ContentStart, rtbVraag.Document.ContentEnd).Text;
+            if (sVraagTekst != "")
+            {
+                tbVraagNaam.IsEnabled = true;
+            }
+            else
+            {
+                tbVraagNaam.IsEnabled = false;
+            }
         }
     }
 }

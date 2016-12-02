@@ -42,7 +42,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <RichTextBox x:Name="rtbVraag" HorizontalAlignment="Left" Height="100" Margin="10,226,0,0" VerticalAlignment="Top" Width="305">
+        <RichTextBox x:Name="rtbVraag" HorizontalAlignment="Left" Height="100" Margin="10,226,0,0" VerticalAlignment="Top" Width="305" TextChanged="rtbVraag_TextChanged">
             <FlowDocument>
                 <Paragraph>
                     <Run/>
@@ -81,14 +81,16 @@
         <Label x:Name="label3_Copy3" Content="Klik het antwoord aan dat u wilt wijzigen:" HorizontalAlignment="Left" Margin="10,449,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305" Height="26"/>
         <Label x:Name="label3_Copy4" Content="Vul hier in wat de antwoorden zijn:" HorizontalAlignment="Left" Margin="10,497,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305" Height="26"/>
         <Label x:Name="label3_Copy5" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305" Height="26"/>
-        <CheckBox x:Name="cbxA" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,608,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxA" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,603,0,0" Foreground="White"/>
         <Label x:Name="label3_Copy6" Content="Geef hier aan wat het juiste antwoord is of juiste antwoorden zijn:" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="354" Height="26"/>
-        <CheckBox x:Name="cbxB" Content="B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,628,0,0" Foreground="White"/>
-        <CheckBox x:Name="cbxC" Content="C" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,648,0,0" Foreground="White"/>
-        <CheckBox x:Name="cbxD" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,668,0,0" Foreground="White"/>
-        <CheckBox x:Name="cbxA_Copy" Content="E" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,608,0,0" Foreground="White"/>
-        <CheckBox x:Name="cbxA_Copy1" Content="F" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,628,0,0" Foreground="White"/>
-        <CheckBox x:Name="cbxA_Copy2" Content="G" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,648,0,0" Foreground="White"/>
-        <CheckBox x:Name="cbxA_Copy3" Content="H" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,668,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxB" Content="B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,623,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxC" Content="C" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,643,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxD" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,663,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxE" Content="E" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,682,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxF" Content="F" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,603,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxG" Content="G" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,623,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxH" Content="H" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,643,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxI" Content="I" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,663,0,0" Foreground="White"/>
+        <CheckBox x:Name="cbxJ" Content="J" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,682,0,0" Foreground="White"/>
     </Grid>
 </Window>
