@@ -180,5 +180,12 @@ namespace elearning2
                 MessageBox.Show("Het veld waarin de vraag ingevuld moet worden mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            ConsulentenKeuzeMenu CKM = new ConsulentenKeuzeMenu();
+            this.Close();
+            CKM.Show();
+        }
     }
 }
