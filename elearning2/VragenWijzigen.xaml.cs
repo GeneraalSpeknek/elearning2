@@ -307,6 +307,7 @@ namespace elearning2
             TBInvisibleAntwoorden();
         }
 
+        //HIER VERDER GAAN
         private void rtbVraag_TextChanged(object sender, TextChangedEventArgs e)
         {
             string sVraagTekst = new TextRange(rtbVraag.Document.ContentStart, rtbVraag.Document.ContentEnd).Text;
