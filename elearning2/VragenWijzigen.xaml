@@ -67,6 +67,16 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox x:Name="cbWelkAntwoordLetter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="10,475,0,0"/>
+        <ComboBox x:Name="cbWelkAntwoordLetter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="10,475,0,0" SelectionChanged="cbWelkAntwoordLetter_SelectionChanged"/>
+        <TextBox x:Name="tbAntwoordA" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordB" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordC" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordD" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordE" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordF" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordG" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordH" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordI" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordJ" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
     </Grid>
 </Window>

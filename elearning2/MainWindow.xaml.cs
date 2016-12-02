@@ -30,6 +30,8 @@ namespace elearning2
         {
             InitializeComponent();
             tbUsrName.Focus();
+            VragenWijzigen VW = new VragenWijzigen();
+            VW.Show();
         }
 
         private void tbLogin_Click(object sender, RoutedEventArgs e)

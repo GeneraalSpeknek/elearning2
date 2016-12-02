@@ -24,7 +24,7 @@ namespace elearning2
         int KiesLesonderwerpId = 0;
         int KiesLesId = 0;
 
-        string[] ArrayAntwoorden = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" };
+        string[] ArrayAntwoorden = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
         struct Vakken
         {
             public string vakId { get; set; }
@@ -55,6 +55,7 @@ namespace elearning2
             FillCBKiesVak();
             cbLesonderwerpKiezen.IsEnabled = false;
             cbLesKiezen.IsEnabled = false;
+            TBInvisibleAntwoorden();
         }
         private void FillCBKiesVak()
         {
@@ -119,6 +120,75 @@ namespace elearning2
                 lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[3].ToString(), VraagNaam = drVragen[1].ToString() });
             }
             lvVragen.ItemsSource = lstVragen;
+        }
+
+        private void TBInvisibleAntwoorden()
+        {
+            tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordB.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordC.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordD.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordE.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordF.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordG.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordH.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordI.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordJ.Visibility = System.Windows.Visibility.Hidden;
+
+            if (cbWelkAntwoordLetter.SelectedItem != null)
+            {
+                int TestInt = cbWelkAntwoordLetter.SelectedIndex;
+                string sSelectedAntwoord = cbWelkAntwoordLetter.SelectedItem.ToString();
+                string sSelectedAntwoordVariable = "tbAntwoord" + sSelectedAntwoord;
+                //string STEST = TestInt.ToString();
+                //MessageBox.Show(STEST)
+                
+                switch (sSelectedAntwoordVariable)
+                {
+                    case "tbAntwoordA":
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordB":
+                        tbAntwoordB.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordC":
+                        tbAntwoordC.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordD":
+                        tbAntwoordD.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordE":
+                        tbAntwoordE.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordF":
+                        tbAntwoordF.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordG":
+                        tbAntwoordG.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordH":
+                        tbAntwoordH.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordI":
+                        tbAntwoordI.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    case "tbAntwoordJ":
+                        tbAntwoordJ.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    default:
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordB.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordC.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordD.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordE.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordF.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordG.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordH.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordI.Visibility = System.Windows.Visibility.Hidden;
+                        tbAntwoordJ.Visibility = System.Windows.Visibility.Hidden;
+                        break;
+                }
+            }
         }
 
         private void cbKiesVak_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -208,6 +278,11 @@ namespace elearning2
                 cbWelkAntwoordLetter.Items.Add(ArrayAntwoorden[iCounterAntwoorden]);
                 iCounterAntwoorden++;
             }
+        }
+
+        private void cbWelkAntwoordLetter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TBInvisibleAntwoorden();
         }
     }
 }
