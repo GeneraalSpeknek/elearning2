@@ -39,6 +39,7 @@ namespace elearning2
         {
             public string VraagId { get; set; }
             public string VraagTekst { get; set; }
+            public string VraagNaam { get; set; }
         }
 
         struct Lessen
@@ -106,16 +107,16 @@ namespace elearning2
             }
         }
 
-        private void FillLBVragen()
+        private void FillLVVragen()
         {
             DataTable dtVragen = new Dbs_Conn().GetVragenVW(KiesLesId);
             List<Vragen> lstVragen = new List<Vragen>();
 
             foreach (DataRow drVragen in dtVragen.Rows)
             {
-                lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[1].ToString() });
+                lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[4].ToString(), VraagNaam = drVragen[4].ToString() });
             }
-            lbVragen.ItemsSource = lstVragen;
+            lvVragen.ItemsSource = lstVragen;
         }
 
         private void cbKiesVak_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -146,7 +147,7 @@ namespace elearning2
             if (cbLesKiezen.SelectedItem != null)
             {
                 KiesLesId = Int32.Parse(((Lessen)(cbLesKiezen.SelectedItem)).LesId);
-                FillLBVragen();
+                FillLVVragen();
             }
         }
 

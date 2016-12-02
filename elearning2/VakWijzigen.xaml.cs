@@ -120,10 +120,5 @@ namespace elearning2
             CKMForm.Show();
 
         }
-
-        private void tbVak_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

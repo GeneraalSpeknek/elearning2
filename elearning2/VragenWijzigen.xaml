@@ -42,13 +42,6 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ListBox x:Name="lbVragen" HorizontalAlignment="Left" Height="722" VerticalAlignment="Top" Width="564" Margin="418,10,0,0">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding VraagTekst}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
         <RichTextBox x:Name="rtbVraag" HorizontalAlignment="Left" Height="100" Margin="10,226,0,0" VerticalAlignment="Top" Width="305">
             <FlowDocument>
                 <Paragraph>
@@ -66,5 +59,13 @@
                 <ImageBrush ImageSource="afbeeldingen/back.png"/>
             </Button.Background>
         </Button>
+        <ListView x:Name="lvVragen" HorizontalAlignment="Left" Height="722" VerticalAlignment="Top" Width="565" Margin="417,10,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Naam" Width="115" DisplayMemberBinding="{Binding VraagNaam}"/>
+                    <GridViewColumn Header="Vraag" Width="450" DisplayMemberBinding="{Binding VraagTekst}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
