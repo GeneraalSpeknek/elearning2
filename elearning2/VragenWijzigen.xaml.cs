@@ -62,12 +62,8 @@ namespace elearning2
             cbLesonderwerpKiezen.IsEnabled = false;
             cbLesKiezen.IsEnabled = false;
             tbAntwoordA.Visibility = System.Windows.Visibility.Visible;
-            rtbVraag.IsEnabled = false;
-            tbVraagNaam.IsEnabled = false;
-            UdAantalAntwoorden.IsEnabled = false;
-            tbAntwoordA.IsEnabled = false;
             cbWelkAntwoordLetter.IsEnabled = false;
-            cbxA.IsEnabled = false;
+            /*cbxA.IsEnabled = false;
             cbxB.IsEnabled = false;
             cbxC.IsEnabled = false;
             cbxD.IsEnabled = false;
@@ -76,7 +72,7 @@ namespace elearning2
             cbxG.IsEnabled = false;
             cbxH.IsEnabled = false;
             cbxI.IsEnabled = false;
-            cbxJ.IsEnabled = false;
+            cbxJ.IsEnabled = false;*/
         }
         private void FillCBKiesVak()
         {
@@ -145,7 +141,7 @@ namespace elearning2
 
         private void TBInvisibleAntwoorden()
         {
-            tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
+            tbAntwoordA.Visibility = System.Windows.Visibility.Visible;
             tbAntwoordB.Visibility = System.Windows.Visibility.Hidden;
             tbAntwoordC.Visibility = System.Windows.Visibility.Hidden;
             tbAntwoordD.Visibility = System.Windows.Visibility.Hidden;
@@ -171,30 +167,39 @@ namespace elearning2
                         break;
                     case "tbAntwoordB":
                         tbAntwoordB.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordC":
                         tbAntwoordC.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordD":
                         tbAntwoordD.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordE":
                         tbAntwoordE.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordF":
                         tbAntwoordF.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordG":
                         tbAntwoordG.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordH":
                         tbAntwoordH.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordI":
                         tbAntwoordI.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     case "tbAntwoordJ":
                         tbAntwoordJ.Visibility = System.Windows.Visibility.Visible;
+                        tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
                         break;
                     default:
                         tbAntwoordA.Visibility = System.Windows.Visibility.Hidden;
@@ -300,25 +305,35 @@ namespace elearning2
                 cbWelkAntwoordLetter.Items.Add(ArrayAntwoorden[iCounterAntwoorden]);
                 iCounterAntwoorden++;
             }
+            if (iAantalAntwoorden.ToString() != "")
+            {
+                cbWelkAntwoordLetter.IsEnabled = true;
+            }
+            else
+            {
+                cbWelkAntwoordLetter.IsEnabled = false;
+            }
         }
 
         private void cbWelkAntwoordLetter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string sSelectedAntwoord = "";
+            string sSelectedAntwoordVariable;
             TBInvisibleAntwoorden();
-        }
-
-        //HIER VERDER GAAN
-        private void rtbVraag_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string sVraagTekst = new TextRange(rtbVraag.Document.ContentStart, rtbVraag.Document.ContentEnd).Text;
-            if (sVraagTekst != "")
+            if (cbWelkAntwoordLetter.SelectedValue != null)
             {
-                tbVraagNaam.IsEnabled = true;
+                sSelectedAntwoord = cbWelkAntwoordLetter.SelectedItem.ToString();
+                sSelectedAntwoordVariable = "antwoord " + sSelectedAntwoord;
+                TBInvisibleAntwoorden();
+                lblAntwoord.Content = "Vul hier in wat " + sSelectedAntwoordVariable + " moet zijn:";
+                tbAntwoordA.IsEnabled = true;
             }
+            
             else
-            {
-                tbVraagNaam.IsEnabled = false;
-            }
+	        {
+                lblAntwoord.Content = "Geef hierboven allereerst aan wat welk antwoord u wilt wijzigen.";
+                tbAntwoordA.IsEnabled = false;
+            } 
         }
     }
 }

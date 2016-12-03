@@ -42,7 +42,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <RichTextBox x:Name="rtbVraag" HorizontalAlignment="Left" Height="100" Margin="10,226,0,0" VerticalAlignment="Top" Width="305" TextChanged="rtbVraag_TextChanged">
+        <RichTextBox x:Name="rtbVraag" HorizontalAlignment="Left" Height="100" Margin="10,226,0,0" VerticalAlignment="Top" Width="305">
             <FlowDocument>
                 <Paragraph>
                     <Run/>
@@ -68,7 +68,7 @@
             </ListView.View>
         </ListView>
         <ComboBox x:Name="cbWelkAntwoordLetter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="10,475,0,0" SelectionChanged="cbWelkAntwoordLetter_SelectionChanged"/>
-        <TextBox x:Name="tbAntwoordA" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
+        <TextBox x:Name="tbAntwoordA" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" IsEnabled="False"/>
         <TextBox x:Name="tbAntwoordB" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
         <TextBox x:Name="tbAntwoordC" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
         <TextBox x:Name="tbAntwoordD" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
@@ -79,7 +79,7 @@
         <TextBox x:Name="tbAntwoordI" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
         <TextBox x:Name="tbAntwoordJ" HorizontalAlignment="Left" Height="50" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
         <Label x:Name="label3_Copy3" Content="Klik het antwoord aan dat u wilt wijzigen:" HorizontalAlignment="Left" Margin="10,449,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305" Height="26"/>
-        <Label x:Name="label3_Copy4" Content="Vul hier in wat de antwoorden zijn:" HorizontalAlignment="Left" Margin="10,497,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305" Height="26"/>
+        <Label x:Name="lblAntwoord" Content="Geef hierboven allereerst aan wat welk antwoord u wilt wijzigen." HorizontalAlignment="Left" Margin="10,497,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="354" Height="26"/>
         <Label x:Name="label3_Copy5" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="305" Height="26"/>
         <CheckBox x:Name="cbxA" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,603,0,0" Foreground="White"/>
         <Label x:Name="label3_Copy6" Content="Geef hier aan wat het juiste antwoord is of juiste antwoorden zijn:" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.51" Foreground="White" Width="354" Height="26"/>
