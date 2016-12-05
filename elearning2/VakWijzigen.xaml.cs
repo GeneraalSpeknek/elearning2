@@ -106,10 +106,6 @@ namespace elearning2
                     PopulateLB();
                     tbVak.Text = "";
                 }
-                else if (ChangeYesNo == MessageBoxResult.No)
-                {
-                    //do something else
-                }
             } 
         }
 
@@ -118,7 +114,6 @@ namespace elearning2
             ConsulentenKeuzeMenu CKMForm = new ConsulentenKeuzeMenu();
             this.Close();
             CKMForm.Show();
-
         }
     }
 }

@@ -9,26 +9,27 @@
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
         mc:Ignorable="d"
-        Title="Vak wijzigen" Height="350" Width="525" WindowStartupLocation="CenterScreen" Visibility="Visible" Icon="afbeeldingen/logo.png">
+        Title="Vak wijzigen" Height="750" Width="1000" WindowStartupLocation="CenterScreen" Visibility="Visible" Icon="afbeeldingen/logo.png">
     <Window.Background>
         <ImageBrush ImageSource="afbeeldingen/background.png"/>
     </Window.Background>
-    <Grid Height="340" VerticalAlignment="Top">
-        <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="192" SelectionChanged="lbVakken_SelectionChanged" Margin="321,0,0,-51">
+    <Grid Height="740" VerticalAlignment="Top" Margin="0,0,-0.4,0">
+        <ListBox x:Name="lbVakken" HorizontalAlignment="Left" Height="661" VerticalAlignment="Top" Width="344" SelectionChanged="lbVakken_SelectionChanged" Margin="640,69,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding VakNaam}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btDeleteVak" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="220,300,0,0" Click="btDeleteVak_Click" Background="#FFE0381D" Foreground="White"/>
-        <Button x:Name="btChangeVak" Content="Aanpassen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="116,300,0,0" Click="btChangeVak_Click" Background="#FFE0381D" Foreground="White"/>
-        <Button x:Name="btAddVak" Content="Toevoegen" HorizontalAlignment="Left" Margin="12,300,0,0" VerticalAlignment="Top" Width="75" Click="btAddVak_Click" Background="#FFE0381D" Foreground="White"/>
-        <TextBox x:Name="tbVak" HorizontalAlignment="Left" Height="23" Margin="12,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
+        <Button x:Name="btDeleteVak" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="204,711,0,0" Click="btDeleteVak_Click" Background="#FFE0381D" Foreground="White"/>
+        <Button x:Name="btChangeVak" Content="Aanpassen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="107,711,0,0" Click="btChangeVak_Click" Background="#FFE0381D" Foreground="White"/>
+        <Button x:Name="btAddVak" Content="Toevoegen" HorizontalAlignment="Left" Margin="12,711,0,0" VerticalAlignment="Top" Width="75" Click="btAddVak_Click" Background="#FFE0381D" Foreground="White"/>
+        <TextBox x:Name="tbVak" HorizontalAlignment="Left" Height="23" Margin="10,668,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
         <Button x:Name="btBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" BorderThickness="0" Click="btBack_Click" Margin="10,10,0,0">
             <Button.Background>
                 <ImageBrush ImageSource="afbeeldingen/back.png"/>
             </Button.Background>
         </Button>
+        <Label x:Name="lblVakTitel" Content="Vakken" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="308,10,0,0" Width="172" FontSize="50"/>
     </Grid>
 </Window>
