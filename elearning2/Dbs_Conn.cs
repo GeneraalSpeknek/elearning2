@@ -377,7 +377,7 @@ namespace elearning2
             try
             {
                 OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET naamlesonderwerp = @Naam WHERE id = @Id", cnn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE lesonderwerp SET naamlesonderwerp=@Naam WHERE id=@Id", cnn);
                 cmd.Parameters.AddWithValue("@Naam", NaamLesonderwerp);
                 cmd.Parameters.AddWithValue("@Id", IdLesonderwerp);
                 cmd.ExecuteNonQuery();
