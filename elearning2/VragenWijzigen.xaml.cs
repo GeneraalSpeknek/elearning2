@@ -51,16 +51,16 @@ namespace elearning2
         }
 
         #region Declare Bools Checkboxes
-        bool bCheckboxA;
-        bool bCheckboxB;
-        bool bCheckboxC;
-        bool bCheckboxD;
-        bool bCheckboxE;
-        bool bCheckboxF;
-        bool bCheckboxG;
-        bool bCheckboxH;
-        bool bCheckboxI;
-        bool bCheckboxJ;
+        int bCheckboxA;
+        int bCheckboxB;
+        int bCheckboxC;
+        int bCheckboxD;
+        int bCheckboxE;
+        int bCheckboxF;
+        int bCheckboxG;
+        int bCheckboxH;
+        int bCheckboxI;
+        int bCheckboxJ;
         #endregion
         public VragenWijzigen()
         {
@@ -74,84 +74,84 @@ namespace elearning2
         {
             if (cbxA.IsEnabled == true)
             {
-                bCheckboxA = true;
+                bCheckboxA = 1;
             }
             else
             {
-                bCheckboxA = false;
+                bCheckboxA = 0;
             }
 
             if (cbxB.IsEnabled == true)
             {
-                bCheckboxB = true;
+                bCheckboxB = 1;
             }
             else
             {
-                bCheckboxB = false;
+                bCheckboxB = 0;
             }
             if (cbxC.IsEnabled == true)
             {
-                bCheckboxC = true;
+                bCheckboxC = 1;
             }
             else
             {
-                bCheckboxC = false;
+                bCheckboxC = 0;
             }
             if (cbxD.IsEnabled == true)
             {
-                bCheckboxD = true;
+                bCheckboxD = 1;
             }
             else
             {
-                bCheckboxD = false;
+                bCheckboxD = 0;
             }
             if (cbxE.IsEnabled == true)
             {
-                bCheckboxE = true;
+                bCheckboxE = 1;
             }
             else
             {
-                bCheckboxE = false;
+                bCheckboxE = 0;
             }
             if (cbxF.IsEnabled == true)
             {
-                bCheckboxF = true;
+                bCheckboxF = 1;
             }
             else
             {
-                bCheckboxF = false;
+                bCheckboxF = 0;
             }
             if (cbxG.IsEnabled == true)
             {
-                bCheckboxG = true;
+                bCheckboxG = 1;
             }
             else
             {
-                bCheckboxG = false;
+                bCheckboxG = 0;
             }
             if (cbxH.IsEnabled == true)
             {
-                bCheckboxH = true;
+                bCheckboxH = 1;
             }
             else
             {
-                bCheckboxH = false;
+                bCheckboxH = 0;
             }
             if (cbxI.IsEnabled == true)
             {
-                bCheckboxI = true;
+                bCheckboxI = 1;
             }
             else
             {
-                bCheckboxI = false;
+                bCheckboxI = 0;
             }
             if (cbxJ.IsEnabled == true)
             {
-                bCheckboxJ = true;
+                bCheckboxJ = 1;
             }
             else
             {
-                bCheckboxJ = false;
+                bCheckboxJ = 0;
             }
         }
         #endregion
