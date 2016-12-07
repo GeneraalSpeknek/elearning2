@@ -268,6 +268,11 @@ namespace elearning2
                 if (sVraagNaam != "")
                 {
                     new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
+                    if (cbxA.IsChecked == true)
+                    {
+                        MessageBox.Show("eyswa G");
+                    }
+                    FillLVVragen();
                 }
                 else
                 {
