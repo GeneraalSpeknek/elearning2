@@ -72,7 +72,7 @@ namespace elearning2
         #region CheckCheckboxes
         private void CheckCheckboxes()
         {
-            if (cbxA.IsEnabled == true)
+            if (cbxA.IsChecked == true)
             {
                 bCheckboxA = 1;
             }
@@ -81,7 +81,7 @@ namespace elearning2
                 bCheckboxA = 0;
             }
 
-            if (cbxB.IsEnabled == true)
+            if (cbxB.IsChecked == true)
             {
                 bCheckboxB = 1;
             }
@@ -89,7 +89,7 @@ namespace elearning2
             {
                 bCheckboxB = 0;
             }
-            if (cbxC.IsEnabled == true)
+            if (cbxC.IsChecked == true)
             {
                 bCheckboxC = 1;
             }
@@ -97,7 +97,7 @@ namespace elearning2
             {
                 bCheckboxC = 0;
             }
-            if (cbxD.IsEnabled == true)
+            if (cbxD.IsChecked == true)
             {
                 bCheckboxD = 1;
             }
@@ -105,7 +105,7 @@ namespace elearning2
             {
                 bCheckboxD = 0;
             }
-            if (cbxE.IsEnabled == true)
+            if (cbxE.IsChecked == true)
             {
                 bCheckboxE = 1;
             }
@@ -113,7 +113,7 @@ namespace elearning2
             {
                 bCheckboxE = 0;
             }
-            if (cbxF.IsEnabled == true)
+            if (cbxF.IsChecked == true)
             {
                 bCheckboxF = 1;
             }
@@ -121,7 +121,7 @@ namespace elearning2
             {
                 bCheckboxF = 0;
             }
-            if (cbxG.IsEnabled == true)
+            if (cbxG.IsChecked == true)
             {
                 bCheckboxG = 1;
             }
@@ -129,7 +129,7 @@ namespace elearning2
             {
                 bCheckboxG = 0;
             }
-            if (cbxH.IsEnabled == true)
+            if (cbxH.IsChecked == true)
             {
                 bCheckboxH = 1;
             }
@@ -137,7 +137,7 @@ namespace elearning2
             {
                 bCheckboxH = 0;
             }
-            if (cbxI.IsEnabled == true)
+            if (cbxI.IsChecked == true)
             {
                 bCheckboxI = 1;
             }
@@ -145,7 +145,7 @@ namespace elearning2
             {
                 bCheckboxI = 0;
             }
-            if (cbxJ.IsEnabled == true)
+            if (cbxJ.IsChecked == true)
             {
                 bCheckboxJ = 1;
             }
@@ -366,6 +366,7 @@ namespace elearning2
             {
                 if (sVraagNaam != "")
                 {
+                    CheckCheckboxes();
                     new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
                    
                     FillLVVragen();
