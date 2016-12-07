@@ -49,6 +49,19 @@ namespace elearning2
             public string LesId { get; set; }
             public string LesNaam { get; set; }
         }
+
+        #region Declare Bools Checkboxes
+        bool bCheckboxA;
+        bool bCheckboxB;
+        bool bCheckboxC;
+        bool bCheckboxD;
+        bool bCheckboxE;
+        bool bCheckboxF;
+        bool bCheckboxG;
+        bool bCheckboxH;
+        bool bCheckboxI;
+        bool bCheckboxJ;
+        #endregion
         public VragenWijzigen()
         {
             InitializeComponent();
@@ -56,6 +69,92 @@ namespace elearning2
             TBInvisibleAntwoorden();
             DisableInputFields();
         }
+        #region CheckCheckboxes
+        private void CheckCheckboxes()
+        {
+            if (cbxA.IsEnabled == true)
+            {
+                bCheckboxA = true;
+            }
+            else
+            {
+                bCheckboxA = false;
+            }
+
+            if (cbxB.IsEnabled == true)
+            {
+                bCheckboxB = true;
+            }
+            else
+            {
+                bCheckboxB = false;
+            }
+            if (cbxC.IsEnabled == true)
+            {
+                bCheckboxC = true;
+            }
+            else
+            {
+                bCheckboxC = false;
+            }
+            if (cbxD.IsEnabled == true)
+            {
+                bCheckboxD = true;
+            }
+            else
+            {
+                bCheckboxD = false;
+            }
+            if (cbxE.IsEnabled == true)
+            {
+                bCheckboxE = true;
+            }
+            else
+            {
+                bCheckboxE = false;
+            }
+            if (cbxF.IsEnabled == true)
+            {
+                bCheckboxF = true;
+            }
+            else
+            {
+                bCheckboxF = false;
+            }
+            if (cbxG.IsEnabled == true)
+            {
+                bCheckboxG = true;
+            }
+            else
+            {
+                bCheckboxG = false;
+            }
+            if (cbxH.IsEnabled == true)
+            {
+                bCheckboxH = true;
+            }
+            else
+            {
+                bCheckboxH = false;
+            }
+            if (cbxI.IsEnabled == true)
+            {
+                bCheckboxI = true;
+            }
+            else
+            {
+                bCheckboxI = false;
+            }
+            if (cbxJ.IsEnabled == true)
+            {
+                bCheckboxJ = true;
+            }
+            else
+            {
+                bCheckboxJ = false;
+            }
+        }
+        #endregion
 
         private void DisableInputFields()
         {
@@ -268,10 +367,7 @@ namespace elearning2
                 if (sVraagNaam != "")
                 {
                     new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
-                    if (cbxA.IsChecked == true)
-                    {
-                        MessageBox.Show("eyswa G");
-                    }
+                   
                     FillLVVragen();
                 }
                 else
