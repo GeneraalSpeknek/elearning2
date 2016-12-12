@@ -115,7 +115,7 @@ namespace elearning2
             else
             {
                 MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je het lesonderwerp '" + SelectedLesonderwerpNaam + "' wilt wijzigen naar '" + tbLesonderwerp.Text + "'?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
-                if(DeleteYesNo == MessageBoxResult.Yes)
+                if (DeleteYesNo == MessageBoxResult.Yes)
                 {
                     new Dbs_Conn().ChangeLesonderwerp(IdLesonderwerp, tbLesonderwerp.Text);
                     tbLesonderwerp.Text = "";

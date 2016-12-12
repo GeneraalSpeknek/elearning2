@@ -49,6 +49,19 @@ namespace elearning2
             public string LesId { get; set; }
             public string LesNaam { get; set; }
         }
+
+        #region Declare Bools Checkboxes
+        int bCheckboxA;
+        int bCheckboxB;
+        int bCheckboxC;
+        int bCheckboxD;
+        int bCheckboxE;
+        int bCheckboxF;
+        int bCheckboxG;
+        int bCheckboxH;
+        int bCheckboxI;
+        int bCheckboxJ;
+        #endregion
         public VragenWijzigen()
         {
             InitializeComponent();
@@ -56,6 +69,92 @@ namespace elearning2
             TBInvisibleAntwoorden();
             DisableInputFields();
         }
+        #region CheckCheckboxes
+        private void CheckCheckboxes()
+        {
+            if (cbxA.IsChecked == true)
+            {
+                bCheckboxA = 1;
+            }
+            else
+            {
+                bCheckboxA = 0;
+            }
+
+            if (cbxB.IsChecked == true)
+            {
+                bCheckboxB = 1;
+            }
+            else
+            {
+                bCheckboxB = 0;
+            }
+            if (cbxC.IsChecked == true)
+            {
+                bCheckboxC = 1;
+            }
+            else
+            {
+                bCheckboxC = 0;
+            }
+            if (cbxD.IsChecked == true)
+            {
+                bCheckboxD = 1;
+            }
+            else
+            {
+                bCheckboxD = 0;
+            }
+            if (cbxE.IsChecked == true)
+            {
+                bCheckboxE = 1;
+            }
+            else
+            {
+                bCheckboxE = 0;
+            }
+            if (cbxF.IsChecked == true)
+            {
+                bCheckboxF = 1;
+            }
+            else
+            {
+                bCheckboxF = 0;
+            }
+            if (cbxG.IsChecked == true)
+            {
+                bCheckboxG = 1;
+            }
+            else
+            {
+                bCheckboxG = 0;
+            }
+            if (cbxH.IsChecked == true)
+            {
+                bCheckboxH = 1;
+            }
+            else
+            {
+                bCheckboxH = 0;
+            }
+            if (cbxI.IsChecked == true)
+            {
+                bCheckboxI = 1;
+            }
+            else
+            {
+                bCheckboxI = 0;
+            }
+            if (cbxJ.IsChecked == true)
+            {
+                bCheckboxJ = 1;
+            }
+            else
+            {
+                bCheckboxJ = 0;
+            }
+        }
+        #endregion
 
         private void DisableInputFields()
         {
@@ -267,7 +366,10 @@ namespace elearning2
             {
                 if (sVraagNaam != "")
                 {
+                    CheckCheckboxes();
                     new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
+                   
+                    FillLVVragen();
                 }
                 else
                 {
