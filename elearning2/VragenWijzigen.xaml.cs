@@ -279,6 +279,8 @@ namespace elearning2
             {
                 MessageBox.Show("Het veld waarin de vraag ingevuld moet worden mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            MessageBox.Show(KiesLesId.ToString());
         }
 
         private void btBack_Click(object sender, RoutedEventArgs e)
