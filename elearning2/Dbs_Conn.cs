@@ -63,7 +63,7 @@ namespace elearning2
             }
             return tbl;
         }
-        public void AddVraagAntwoorden(string sUsername, string sPass, string sRol)
+        public void AddVraagAntwoorden(int bCheckboxA, int bCheckboxB, int bCheckboxC, int bCheckboxD, int bCheckboxE, int bCheckboxF, int bCheckboxG, int bCheckboxH, int bCheckboxI, int bCheckboxJ)
         {
             try
             {

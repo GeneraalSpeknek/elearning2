@@ -367,94 +367,105 @@ namespace elearning2
                 if (sVraagNaam != "")
                 {
                     DataTable dtCheckVraagnaam = new Dbs_Conn().CheckVraagNaam(sVraagNaam);
-                    //HIER VERDER WERKEN AAN CHECKEN VAN VRAAGNAAM, MOET UNIEKE WAARDE ZIJN OM ID TE KRIJGEN VOOR ANDERE TABEL
-                    if (UdAantalAntwoorden.Value != null)
+                    if (dtCheckVraagnaam != null)
                     {
-                        bool bAllAnswersFilled = false;
-                        
-                        string sAantalantwoorden = UdAantalAntwoorden.Value.ToString();
-                        int iAantalantwoorden = Convert.ToInt32(sAantalantwoorden);
-                        #region antwoordvalidatieswitch
-                        switch (iAantalantwoorden)
+                        if (dtCheckVraagnaam.Rows.Count == 0)
                         {
-                            case 2:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text !="")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 3:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 4:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 5:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 6:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 7:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 8:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 9:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            case 10:
-                                if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "" && tbAntwoordJ.Text != "")
-                                {
-                                    bAllAnswersFilled = true;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                        #endregion
-                        if (bAllAnswersFilled == true)
-                        {
-                            CheckCheckboxes();
-                            new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
-                            FillLVVragen();
-                            int iAantalantwoordenChecked = bCheckboxA + bCheckboxB + bCheckboxC + bCheckboxD + bCheckboxE + +bCheckboxF + bCheckboxG + +bCheckboxH + bCheckboxI + bCheckboxJ;
-                            if (iAantalantwoordenChecked != 0)
+                            if (UdAantalAntwoorden.Value != null)
                             {
-                                //new Dbs_Conn().AddVraagAntwoorden();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Je moet minstens één antwoord als goed aanvinken.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                                bool bAllAnswersFilled = false;
+
+                                string sAantalantwoorden = UdAantalAntwoorden.Value.ToString();
+                                int iAantalantwoorden = Convert.ToInt32(sAantalantwoorden);
+                                #region antwoordvalidatieswitch
+                                switch (iAantalantwoorden)
+                                {
+                                    case 2:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 3:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 4:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 5:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 6:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 7:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 8:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 9:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    case 10:
+                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "" && tbAntwoordJ.Text != "")
+                                        {
+                                            bAllAnswersFilled = true;
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                #endregion
+                                if (bAllAnswersFilled == true)
+                                {
+                                    CheckCheckboxes();
+                                    new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
+                                    FillLVVragen();
+                                    int iAantalantwoordenChecked = bCheckboxA + bCheckboxB + bCheckboxC + bCheckboxD + bCheckboxE + bCheckboxF + bCheckboxG + bCheckboxH + bCheckboxI + bCheckboxJ;
+                                    if (iAantalantwoordenChecked != 0)
+                                    {
+                                        new Dbs_Conn().AddVraagAntwoorden(bCheckboxA, bCheckboxB, bCheckboxC, bCheckboxD, bCheckboxE, bCheckboxF, bCheckboxG, bCheckboxH, bCheckboxI, bCheckboxJ);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Je moet minstens één antwoord als goed aanvinken.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Niet alle antwoordvelden zijn ingevuld, vul deze in en probeer het opnieuw.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Niet alle antwoordvelden zijn ingevuld, vul deze in en probeer het opnieuw.","Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Deze naam voor de vraag bestaat al. Kies een andere, unieke, naam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
+                    //HIER VERDER WERKEN AAN CHECKEN VAN VRAAGNAAM, MOET UNIEKE WAARDE ZIJN OM ID TE KRIJGEN VOOR ANDERE TABEL
+                    
                     else
                     {
                         MessageBox.Show("Het veld waarin het aantal antwoorden moet worden aangegeven mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
