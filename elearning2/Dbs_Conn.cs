@@ -45,6 +45,31 @@ namespace elearning2
 
             }
         }
+        public void AddAntwoordTeksten(int ivraagid, string sAntwoorda, string sAntwoordb, string sAntwoordc, string sAntwoordd, string sAntwoorde, string sAntwoordf, string sAntwoordg, string sAntwoordh, string sAntwoordi, string sAntwoordj)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO antwoordentekst (vraagid,antwoorda,antwoordb,antwoordc,antwoordd,antwoorde,antwoordf,antwoordg,antwoordh,antwoordi,antwoordj) VALUES (@vraagid,@antwoorda,@antwoordb,@antwoordc,@antwoordd,@antwoorde,@antwoordf,@antwoordg,@antwoordh,@antwoordi,@antwoordj)", cnn);
+                cmd.Parameters.AddWithValue("@vraagid", ivraagid);
+                cmd.Parameters.AddWithValue("@antwoorda", sAntwoorda);
+                cmd.Parameters.AddWithValue("@antwoordb", sAntwoordb);
+                cmd.Parameters.AddWithValue("@antwoordc", sAntwoordc);
+                cmd.Parameters.AddWithValue("@antwoordd", sAntwoordd);
+                cmd.Parameters.AddWithValue("@antwoorde", sAntwoorde);
+                cmd.Parameters.AddWithValue("@antwoordf", sAntwoordf);
+                cmd.Parameters.AddWithValue("@antwoordg", sAntwoordg);
+                cmd.Parameters.AddWithValue("@antwoordh", sAntwoordh);
+                cmd.Parameters.AddWithValue("@antwoordi", sAntwoordi);
+                cmd.Parameters.AddWithValue("@antwoordj", sAntwoordj);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
         public DataTable CheckVraagNaam(string sVraagNaam)
         {
@@ -63,17 +88,43 @@ namespace elearning2
             }
             return tbl;
         }
-        public void AddVraagAntwoorden(int bCheckboxA, int bCheckboxB, int bCheckboxC, int bCheckboxD, int bCheckboxE, int bCheckboxF, int bCheckboxG, int bCheckboxH, int bCheckboxI, int bCheckboxJ)
+        public DataTable GetVragenId(string sVraagNaam)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM vragen WHERE naam = '" + sVraagNaam + "'", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return tbl;
+        }
+        public void AddVraagAntwoorden(int iVraagId, int bCheckboxA, int bCheckboxB, int bCheckboxC, int bCheckboxD, int bCheckboxE, int bCheckboxF, int bCheckboxG, int bCheckboxH, int bCheckboxI, int bCheckboxJ, int iAantalAntwoorden)
         {
             try
             {
                 OpenConnection();
                 MySqlConnection cnn = new MySqlConnection(strcnn);
                 cnn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO inloginfo(usrname, pass, rol)VALUES(@username, @pass, @rol)", cnn);
-                cmd.Parameters.AddWithValue("@username", sUsername);
-                cmd.Parameters.AddWithValue("@pass", sPass);
-                cmd.Parameters.AddWithValue("@rol", sRol);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO antwoorden(vraagid, goedantwoorda, goedantwoordb, goedantwoordc, goedantwoordd, goedantwoorde, goedantwoordf, goedantwoordg, goedantwoordh, goedantwoordi, goedantwoordj, aantalantwoorden)VALUES(@vraagid, @Checkboxa, @Checkboxb, @Checkboxc, @Checkboxd, @Checkboxe, @Checkboxf, @Checkboxg, @Checkboxh, @Checkboxi, @Checkboxj, @aantalantwoorden)", cnn);
+                cmd.Parameters.AddWithValue("@vraagid", iVraagId);
+                cmd.Parameters.AddWithValue("@Checkboxa", bCheckboxA);
+                cmd.Parameters.AddWithValue("@Checkboxb", bCheckboxB);
+                cmd.Parameters.AddWithValue("@Checkboxc", bCheckboxC);
+                cmd.Parameters.AddWithValue("@Checkboxd", bCheckboxD);
+                cmd.Parameters.AddWithValue("@Checkboxe", bCheckboxE);
+                cmd.Parameters.AddWithValue("@Checkboxf", bCheckboxF);
+                cmd.Parameters.AddWithValue("@Checkboxg", bCheckboxG);
+                cmd.Parameters.AddWithValue("@Checkboxh", bCheckboxH);
+                cmd.Parameters.AddWithValue("@Checkboxi", bCheckboxI);
+                cmd.Parameters.AddWithValue("@Checkboxj", bCheckboxJ);
+                cmd.Parameters.AddWithValue("@aantalantwoorden", iAantalAntwoorden);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
             }

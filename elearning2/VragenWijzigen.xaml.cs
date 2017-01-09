@@ -446,7 +446,10 @@ namespace elearning2
                                     int iAantalantwoordenChecked = bCheckboxA + bCheckboxB + bCheckboxC + bCheckboxD + bCheckboxE + bCheckboxF + bCheckboxG + bCheckboxH + bCheckboxI + bCheckboxJ;
                                     if (iAantalantwoordenChecked != 0)
                                     {
-                                        new Dbs_Conn().AddVraagAntwoorden(bCheckboxA, bCheckboxB, bCheckboxC, bCheckboxD, bCheckboxE, bCheckboxF, bCheckboxG, bCheckboxH, bCheckboxI, bCheckboxJ);
+                                        DataTable dtVragenId = new Dbs_Conn().GetVragenId(sVraagNaam);
+                                        int iVragenId = Convert.ToInt32(dtVragenId.Rows[0]["id"]);
+                                        new Dbs_Conn().AddVraagAntwoorden(iVragenId, bCheckboxA, bCheckboxB, bCheckboxC, bCheckboxD, bCheckboxE, bCheckboxF, bCheckboxG, bCheckboxH, bCheckboxI, bCheckboxJ, iAantalantwoorden);
+                                        new Dbs_Conn().AddAntwoordTeksten(iVragenId, tbAntwoordA.Text, tbAntwoordB.Text, tbAntwoordC.Text, tbAntwoordD.Text, tbAntwoordE.Text, tbAntwoordF.Text, tbAntwoordG.Text, tbAntwoordH.Text, tbAntwoordI.Text, tbAntwoordJ.Text);
                                     }
                                     else
                                     {
@@ -483,7 +486,7 @@ namespace elearning2
                 MessageBox.Show("Het veld waarin de vraag ingevuld moet worden mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            MessageBox.Show(KiesLesId.ToString());
+            //MessageBox.Show(KiesLesId.ToString());
         }
 
         private void btBack_Click(object sender, RoutedEventArgs e)
