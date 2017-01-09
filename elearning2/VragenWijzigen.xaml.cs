@@ -366,6 +366,8 @@ namespace elearning2
             {
                 if (sVraagNaam != "")
                 {
+                    DataTable dtCheckVraagnaam = new Dbs_Conn().CheckVraagNaam(sVraagNaam);
+                    //HIER VERDER WERKEN AAN CHECKEN VAN VRAAGNAAM, MOET UNIEKE WAARDE ZIJN OM ID TE KRIJGEN VOOR ANDERE TABEL
                     if (UdAantalAntwoorden.Value != null)
                     {
                         bool bAllAnswersFilled = false;
@@ -438,6 +440,15 @@ namespace elearning2
                             CheckCheckboxes();
                             new Dbs_Conn().AddVraag(sVraagTekst, sVraagNaam, KiesLesId);
                             FillLVVragen();
+                            int iAantalantwoordenChecked = bCheckboxA + bCheckboxB + bCheckboxC + bCheckboxD + bCheckboxE + +bCheckboxF + bCheckboxG + +bCheckboxH + bCheckboxI + bCheckboxJ;
+                            if (iAantalantwoordenChecked != 0)
+                            {
+                                //new Dbs_Conn().AddVraagAntwoorden();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Je moet minstens één antwoord als goed aanvinken.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                         else
                         {

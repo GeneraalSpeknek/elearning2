@@ -46,6 +46,43 @@ namespace elearning2
             }
         }
 
+        public DataTable CheckVraagNaam(string sVraagNaam)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM vragen WHERE naam = '" + sVraagNaam + "'", cnn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return tbl;
+        }
+        public void AddVraagAntwoorden(string sUsername, string sPass, string sRol)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlConnection cnn = new MySqlConnection(strcnn);
+                cnn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO inloginfo(usrname, pass, rol)VALUES(@username, @pass, @rol)", cnn);
+                cmd.Parameters.AddWithValue("@username", sUsername);
+                cmd.Parameters.AddWithValue("@pass", sPass);
+                cmd.Parameters.AddWithValue("@rol", sRol);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         public DataTable GetVragenVW(int LesId)
         {
             DataTable tbl = new DataTable();
