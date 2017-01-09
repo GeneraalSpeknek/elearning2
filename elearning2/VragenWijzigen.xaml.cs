@@ -68,6 +68,7 @@ namespace elearning2
             FillCBKiesVak();
             TBInvisibleAntwoorden();
             DisableInputFields();
+            DisableCheckBoxes();
         }
         #region CheckCheckboxes
         private void CheckCheckboxes()
@@ -162,16 +163,6 @@ namespace elearning2
             cbLesKiezen.IsEnabled = false;
             tbAntwoordA.Visibility = System.Windows.Visibility.Visible;
             cbWelkAntwoordLetter.IsEnabled = false;
-            /*cbxA.IsEnabled = false;
-            cbxB.IsEnabled = false;
-            cbxC.IsEnabled = false;
-            cbxD.IsEnabled = false;
-            cbxE.IsEnabled = false;
-            cbxF.IsEnabled = false;
-            cbxG.IsEnabled = false;
-            cbxH.IsEnabled = false;
-            cbxI.IsEnabled = false;
-            cbxJ.IsEnabled = false;*/
         }
         private void FillCBKiesVak()
         {
@@ -236,6 +227,112 @@ namespace elearning2
                 lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[3].ToString(), VraagNaam = drVragen[1].ToString() });
             }
             lvVragen.ItemsSource = lstVragen;
+        }
+
+        private void DisableCheckBoxes()
+        {
+            cbxA.IsEnabled = false;
+            cbxB.IsEnabled = false;
+            cbxC.IsEnabled = false;
+            cbxD.IsEnabled = false;
+            cbxE.IsEnabled = false;
+            cbxF.IsEnabled = false;
+            cbxG.IsEnabled = false;
+            cbxH.IsEnabled = false;
+            cbxI.IsEnabled = false;
+            cbxJ.IsEnabled = false;
+
+            cbxA.IsChecked = false;
+            cbxB.IsChecked = false;
+            cbxC.IsChecked = false;
+            cbxD.IsChecked = false;
+            cbxE.IsChecked = false;
+            cbxF.IsChecked = false;
+            cbxG.IsChecked = false;
+            cbxH.IsChecked = false;
+            cbxI.IsChecked = false;
+            cbxJ.IsChecked = false;
+        }
+        private void ResetCheckboxSettings()
+        {
+            int iAantalAntwoorden = Convert.ToInt32(UdAantalAntwoorden.Value);
+            switch (iAantalAntwoorden)
+            {
+                case 2:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    break;
+                case 3:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    break;
+                case 4:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    break;
+                case 5:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    cbxE.IsEnabled = true;
+                    break;
+                case 6:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    cbxE.IsEnabled = true;
+                    cbxF.IsEnabled = true;
+                    break;
+                case 7:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    cbxE.IsEnabled = true;
+                    cbxF.IsEnabled = true;
+                    cbxG.IsEnabled = true;
+                    break;
+                case 8:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    cbxE.IsEnabled = true;
+                    cbxF.IsEnabled = true;
+                    cbxG.IsEnabled = true;
+                    cbxH.IsEnabled = true;
+                    break;
+                case 9:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    cbxE.IsEnabled = true;
+                    cbxF.IsEnabled = true;
+                    cbxG.IsEnabled = true;
+                    cbxH.IsEnabled = true;
+                    cbxI.IsEnabled = true;
+                    break;
+                case 10:
+                    cbxA.IsEnabled = true;
+                    cbxB.IsEnabled = true;
+                    cbxC.IsEnabled = true;
+                    cbxD.IsEnabled = true;
+                    cbxE.IsEnabled = true;
+                    cbxF.IsEnabled = true;
+                    cbxG.IsEnabled = true;
+                    cbxH.IsEnabled = true;
+                    cbxI.IsEnabled = true;
+                    cbxJ.IsEnabled = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void TBInvisibleAntwoorden()
@@ -521,6 +618,8 @@ namespace elearning2
             {
                 cbWelkAntwoordLetter.IsEnabled = false;
             }
+            DisableCheckBoxes();
+            ResetCheckboxSettings();
         }
 
         private void cbWelkAntwoordLetter_SelectionChanged(object sender, SelectionChangedEventArgs e)
