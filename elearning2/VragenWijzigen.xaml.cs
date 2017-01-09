@@ -23,6 +23,7 @@ namespace elearning2
         int KiesVakId = 0;
         int KiesLesonderwerpId = 0;
         int KiesLesId = 0;
+        int VraagId;
 
         string[] ArrayAntwoorden = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
         struct Vakken
@@ -597,7 +598,7 @@ namespace elearning2
         {
             if (lvVragen.SelectedItem != null)
             {
-                int VraagId = int.Parse(((Vragen)(lvVragen.SelectedItem)).VraagId);
+                VraagId = int.Parse(((Vragen)(lvVragen.SelectedItem)).VraagId);
             }
         }
         private void UdAantalAntwoorden_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -641,6 +642,18 @@ namespace elearning2
                 lblAntwoord.Content = "Geef hierboven allereerst aan wat welk antwoord u wilt wijzigen.";
                 tbAntwoordA.IsEnabled = false;
             } 
+        }
+
+        private void btVerwijderVraag_Click(object sender, RoutedEventArgs e)
+        {
+            string sVraagNaam = ((Vragen)(lvVragen.SelectedItem)).VraagNaam;
+            MessageBoxResult DeleteYesNo = MessageBox.Show("Weet je zeker dat je de vraag '"+ sVraagNaam +"' wilt verwijderen?", "Foutmelding", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+
+            if (DeleteYesNo == MessageBoxResult.Yes)
+            {
+                new Dbs_Conn().DeleteVraagDBS(VraagId);
+                FillLVVragen();
+            }
         }
     }
 }

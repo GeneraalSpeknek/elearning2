@@ -154,6 +154,34 @@ namespace elearning2
             return tbl;
         }
 
+        public void DeleteVraag(int VraagId)
+        {
+            DeleteVraagDBS(VraagId);
+
+        }
+        public void DeleteVraagDBS(int VraagId)
+        {
+        try
+        {
+            OpenConnection();
+            MySqlCommand cmdDeleteVraag = new MySqlCommand("DELETE FROM vragen WHERE id = @Id", cnn);
+            cmdDeleteVraag.Parameters.AddWithValue("@Id", VraagId);
+            cmdDeleteVraag.ExecuteNonQuery();
+            MySqlCommand cmdDeleteAntwoorden = new MySqlCommand("DELETE FROM antwoorden WHERE vraagid = @Id", cnn);
+            cmdDeleteAntwoorden.Parameters.AddWithValue("@Id", VraagId);
+            cmdDeleteAntwoorden.ExecuteNonQuery();
+            MySqlCommand cmdDeleteAntwoordTeksten = new MySqlCommand("DELETE FROM antwoordentekst WHERE vraagid = @Id", cnn);
+            cmdDeleteAntwoordTeksten.Parameters.AddWithValue("@Id", VraagId);
+            cmdDeleteAntwoordTeksten.ExecuteNonQuery();
+            cnn.Close();
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+        
+
         public DataTable GetLessenVW(int LesonderwerpId)
         {
             DataTable tbl = new DataTable();
