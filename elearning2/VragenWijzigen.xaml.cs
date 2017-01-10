@@ -264,19 +264,11 @@ namespace elearning2
             int AntwoordH = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordh"]);
             int AntwoordI = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordi"]);
             int AntwoordJ = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordj"]);
-            //List<Antwoorden> lstAntwoorden = new List<Antwoorden>();
+            int AantalAntwoorden = Convert.ToInt32(dtAntwoorden.Rows[0]["aantalantwoorden"]);
 
-            /*foreach (DataRow drAntwoorden in dtAntwoorden.Rows)
-            {
-                lstAntwoorden.Add(new Antwoorden() { AntwoordId = Convert.ToInt32(drAntwoorden[0]), GoedAntwoordA = Convert.ToInt32(drAntwoorden[1]), GoedAntwoordB = Convert.ToInt32(drAntwoorden[2]), GoedAntwoordC = Convert.ToInt32(drAntwoorden[3]), GoedAntwoordD = Convert.ToInt32(drAntwoorden[4]), GoedAntwoordE = Convert.ToInt32(drAntwoorden[5]), GoedAntwoordF = Convert.ToInt32(drAntwoorden[6]), GoedAntwoordG = Convert.ToInt32(drAntwoorden[7]), GoedAntwoordH = Convert.ToInt32(drAntwoorden[8]), GoedAntwoordI = Convert.ToInt32(drAntwoorden[9]), GoedAntwoordJ = Convert.ToInt32(drAntwoorden[10]), AantalAntwoorden = Convert.ToInt32(drAntwoorden[11]) });
-            }*/
-
-            //MessageBox.Show(dtAntwoorden.Rows.Count.ToString());
+            UdAantalAntwoorden.Value = AantalAntwoorden;
             #endregion
             #region checkboxvuller
-            //int AntwoordA = Convert.ToInt32(lstAntwoorden.ElementAt(0));
-            //int AntwoordA = Convert.ToInt32(((Antwoorden)(lvVragen.SelectedItem)).GoedAntwoordA);
-
             if (AntwoordA == 1)
             {
                 cbxA.IsChecked = true;
