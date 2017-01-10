@@ -773,8 +773,16 @@ namespace elearning2
             string sVraagTekst = new TextRange(rtbVraag.Document.ContentStart, rtbVraag.Document.ContentEnd).Text;
             string VraagNaam = tbVraagNaam.Text;
             int AantalAntwoorden = Convert.ToInt32(UdAantalAntwoorden.Value);
-
-            new Dbs_Conn().ModifyVragen(sVraagTekst, VraagNaam, VraagIdVulTekst);
+            DataTable dtCheckVraagNaam = new Dbs_Conn().CheckVraagNaam(VraagNaam);
+            if (dtCheckVraagNaam.Rows.Count == 0 || Convert.ToInt32(dtCheckVraagNaam.Rows[0]["id"]) == VraagIdVulTekst)
+            {
+                new Dbs_Conn().ModifyVragen(sVraagTekst, VraagNaam, VraagIdVulTekst);
+                FillLVVragen();
+            }
+            else
+            {
+                MessageBox.Show("Deze naam is al in gebruik. Kies een andere, unieke, naam.");
+            }
         }
     }
 }
