@@ -267,6 +267,7 @@ namespace elearning2
             int AantalAntwoorden = Convert.ToInt32(dtAntwoorden.Rows[0]["aantalantwoorden"]);
 
             UdAantalAntwoorden.Value = AantalAntwoorden;
+            ResetCheckboxSettings();
             #endregion
             #region checkboxvuller
             if (AntwoordA == 1)
