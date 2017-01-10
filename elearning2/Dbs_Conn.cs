@@ -45,6 +45,23 @@ namespace elearning2
 
             }
         }
+        public void ModifyVragen(string sVraagTekst, string sVraagNaam, int VraagId)
+        {
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("UPDATE `vragen` SET `naam`= @vraagnaam,`vraag`= @vraagtekst WHERE `id`= @id", cnn);
+                cmd.Parameters.AddWithValue("@vraagnaam", sVraagNaam);
+                cmd.Parameters.AddWithValue("@vraagtekst", sVraagTekst);
+                cmd.Parameters.AddWithValue("@id", VraagId);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
         public void AddAntwoordTeksten(int ivraagid, string sAntwoorda, string sAntwoordb, string sAntwoordc, string sAntwoordd, string sAntwoorde, string sAntwoordf, string sAntwoordg, string sAntwoordh, string sAntwoordi, string sAntwoordj)
         {
             try

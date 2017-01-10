@@ -24,6 +24,7 @@ namespace elearning2
         int KiesLesonderwerpId = 0;
         int KiesLesId = 0;
         int VraagId;
+        int VraagIdVulTekst;
 
         string[] ArrayAntwoorden = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
         struct Vakken
@@ -251,7 +252,7 @@ namespace elearning2
             rtbVraag.AppendText(((Vragen)(lvVragen.SelectedItem)).VraagTekst);
 
             #region Vul lstantwoorden
-            int VraagIdVulTekst = Convert.ToInt32(((Vragen)(lvVragen.SelectedItem)).VraagId);
+            VraagIdVulTekst = Convert.ToInt32(((Vragen)(lvVragen.SelectedItem)).VraagId);
             DataTable dtAntwoorden = new Dbs_Conn().GetAntwoorden(VraagIdVulTekst);
 
             int AntwoordA = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoorda"]);
@@ -769,7 +770,11 @@ namespace elearning2
 
         private void btModifyVraag_Click(object sender, RoutedEventArgs e)
         {
+            string sVraagTekst = new TextRange(rtbVraag.Document.ContentStart, rtbVraag.Document.ContentEnd).Text;
+            string VraagNaam = tbVraagNaam.Text;
+            int AantalAntwoorden = Convert.ToInt32(UdAantalAntwoorden.Value);
 
+            new Dbs_Conn().ModifyVragen(sVraagTekst, VraagNaam, VraagIdVulTekst);
         }
     }
 }
