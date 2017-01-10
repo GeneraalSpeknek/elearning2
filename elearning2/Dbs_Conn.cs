@@ -153,6 +153,25 @@ namespace elearning2
             }
             return tbl;
         }
+        public DataTable GetAntwoorden(int VraagId)
+        {
+            DataTable tbl = new DataTable();
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM antwoorden WHERE vraagid = @id", cnn);
+                cmd.Parameters.AddWithValue("@Id", VraagId);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                tbl.Load(rdr);
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            return tbl;
+        }
 
         public void DeleteVraag(int VraagId)
         {

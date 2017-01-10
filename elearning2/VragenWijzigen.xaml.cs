@@ -45,6 +45,21 @@ namespace elearning2
             public string VraagNaam { get; set; }
         }
 
+        struct Antwoorden
+        {
+            public int AntwoordId { get; set; }
+            public int GoedAntwoordA { get; set; }
+            public int GoedAntwoordB { get; set; }
+            public int GoedAntwoordC { get; set; }
+            public int GoedAntwoordD { get; set; }
+            public int GoedAntwoordE { get; set; }
+            public int GoedAntwoordF { get; set; }
+            public int GoedAntwoordG { get; set; }
+            public int GoedAntwoordH { get; set; }
+            public int GoedAntwoordI { get; set; }
+            public int GoedAntwoordJ { get; set; }
+            public int AantalAntwoorden { get; set; }
+        }
         struct Lessen
         {
             public string LesId { get; set; }
@@ -228,12 +243,25 @@ namespace elearning2
                 lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[3].ToString(), VraagNaam = drVragen[1].ToString() });
             }
             lvVragen.ItemsSource = lstVragen;
+
+            int VraagIdVulTekst = Convert.ToInt32(((Vragen)(lvVragen.SelectedItem)).VraagId);
+            DataTable dtAntwoorden = new Dbs_Conn().GetAntwoorden(VraagIdVulTekst);
+
+            List<Antwoorden> lstAntwoorden = new List<Antwoorden>();
+
+            foreach (DataRow drAntwoorden in dtAntwoorden.Rows)
+            {
+                lstAntwoorden.Add(new Antwoorden() { AntwoordId = Convert.ToInt32(drAntwoorden[0]), GoedAntwoordA = Convert.ToInt32(drAntwoorden[1]), GoedAntwoordB = Convert.ToInt32(drAntwoorden[2]), GoedAntwoordC = Convert.ToInt32(drAntwoorden[3]), GoedAntwoordD = Convert.ToInt32(drAntwoorden[4]), GoedAntwoordE = Convert.ToInt32(drAntwoorden[5]), GoedAntwoordF = Convert.ToInt32(drAntwoorden[6]), GoedAntwoordG = Convert.ToInt32(drAntwoorden[7]), GoedAntwoordH = Convert.ToInt32(drAntwoorden[8]), GoedAntwoordI = Convert.ToInt32(drAntwoorden[9]), GoedAntwoordJ = Convert.ToInt32(drAntwoorden[10]), AantalAntwoorden = Convert.ToInt32(drAntwoorden[11]) });
+            }
+            lvVragen.ItemsSource = lstVragen;
         }
         private void VulTekstWhenLVSelectionChanged()
         {
             tbVraagNaam.Text = ((Vragen)(lvVragen.SelectedItem)).VraagNaam;
             rtbVraag.Document.Blocks.Clear();
             rtbVraag.AppendText(((Vragen)(lvVragen.SelectedItem)).VraagTekst);
+            
+
         }
 
         private void DisableCheckBoxes()
