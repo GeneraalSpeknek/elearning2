@@ -243,25 +243,81 @@ namespace elearning2
                 lstVragen.Add(new Vragen() { VraagId = drVragen[0].ToString(), VraagTekst = drVragen[3].ToString(), VraagNaam = drVragen[1].ToString() });
             }
             lvVragen.ItemsSource = lstVragen;
-
-            int VraagIdVulTekst = Convert.ToInt32(((Vragen)(lvVragen.SelectedItem)).VraagId);
-            DataTable dtAntwoorden = new Dbs_Conn().GetAntwoorden(VraagIdVulTekst);
-
-            List<Antwoorden> lstAntwoorden = new List<Antwoorden>();
-
-            foreach (DataRow drAntwoorden in dtAntwoorden.Rows)
-            {
-                lstAntwoorden.Add(new Antwoorden() { AntwoordId = Convert.ToInt32(drAntwoorden[0]), GoedAntwoordA = Convert.ToInt32(drAntwoorden[1]), GoedAntwoordB = Convert.ToInt32(drAntwoorden[2]), GoedAntwoordC = Convert.ToInt32(drAntwoorden[3]), GoedAntwoordD = Convert.ToInt32(drAntwoorden[4]), GoedAntwoordE = Convert.ToInt32(drAntwoorden[5]), GoedAntwoordF = Convert.ToInt32(drAntwoorden[6]), GoedAntwoordG = Convert.ToInt32(drAntwoorden[7]), GoedAntwoordH = Convert.ToInt32(drAntwoorden[8]), GoedAntwoordI = Convert.ToInt32(drAntwoorden[9]), GoedAntwoordJ = Convert.ToInt32(drAntwoorden[10]), AantalAntwoorden = Convert.ToInt32(drAntwoorden[11]) });
-            }
-            lvVragen.ItemsSource = lstVragen;
         }
         private void VulTekstWhenLVSelectionChanged()
         {
             tbVraagNaam.Text = ((Vragen)(lvVragen.SelectedItem)).VraagNaam;
             rtbVraag.Document.Blocks.Clear();
             rtbVraag.AppendText(((Vragen)(lvVragen.SelectedItem)).VraagTekst);
-            
 
+            #region Vul lstantwoorden
+            int VraagIdVulTekst = Convert.ToInt32(((Vragen)(lvVragen.SelectedItem)).VraagId);
+            DataTable dtAntwoorden = new Dbs_Conn().GetAntwoorden(VraagIdVulTekst);
+
+            int AntwoordA = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoorda"]);
+            int AntwoordB = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordb"]);
+            int AntwoordC = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordc"]);
+            int AntwoordD = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordd"]);
+            int AntwoordE = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoorde"]);
+            int AntwoordF = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordf"]);
+            int AntwoordG = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordg"]);
+            int AntwoordH = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordh"]);
+            int AntwoordI = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordi"]);
+            int AntwoordJ = Convert.ToInt32(dtAntwoorden.Rows[0]["goedantwoordj"]);
+            //List<Antwoorden> lstAntwoorden = new List<Antwoorden>();
+
+            /*foreach (DataRow drAntwoorden in dtAntwoorden.Rows)
+            {
+                lstAntwoorden.Add(new Antwoorden() { AntwoordId = Convert.ToInt32(drAntwoorden[0]), GoedAntwoordA = Convert.ToInt32(drAntwoorden[1]), GoedAntwoordB = Convert.ToInt32(drAntwoorden[2]), GoedAntwoordC = Convert.ToInt32(drAntwoorden[3]), GoedAntwoordD = Convert.ToInt32(drAntwoorden[4]), GoedAntwoordE = Convert.ToInt32(drAntwoorden[5]), GoedAntwoordF = Convert.ToInt32(drAntwoorden[6]), GoedAntwoordG = Convert.ToInt32(drAntwoorden[7]), GoedAntwoordH = Convert.ToInt32(drAntwoorden[8]), GoedAntwoordI = Convert.ToInt32(drAntwoorden[9]), GoedAntwoordJ = Convert.ToInt32(drAntwoorden[10]), AantalAntwoorden = Convert.ToInt32(drAntwoorden[11]) });
+            }*/
+
+            //MessageBox.Show(dtAntwoorden.Rows.Count.ToString());
+            #endregion
+            #region checkboxvuller
+            //int AntwoordA = Convert.ToInt32(lstAntwoorden.ElementAt(0));
+            //int AntwoordA = Convert.ToInt32(((Antwoorden)(lvVragen.SelectedItem)).GoedAntwoordA);
+
+            if (AntwoordA == 1)
+            {
+                cbxA.IsChecked = true;
+            }
+            if (AntwoordB == 1)
+            {
+                cbxB.IsChecked = true;
+            }
+            if (AntwoordC == 1)
+            {
+                cbxC.IsChecked = true;
+            }
+            if (AntwoordD == 1)
+            {
+                cbxD.IsChecked = true;
+            }
+            if (AntwoordE == 1)
+            {
+                cbxE.IsChecked = true;
+            }
+            if (AntwoordF == 1)
+            {
+                cbxF.IsChecked = true;
+            }
+            if (AntwoordG == 1)
+            {
+                cbxG.IsChecked = true;
+            }
+            if (AntwoordH == 1)
+            {
+                cbxH.IsChecked = true;
+            }
+            if (AntwoordI == 1)
+            {
+                cbxI.IsChecked = true;
+            }
+            if (AntwoordJ == 1)
+            {
+                cbxJ.IsChecked = true;
+            }
+            #endregion
         }
 
         private void DisableCheckBoxes()
@@ -630,11 +686,13 @@ namespace elearning2
 
         private void lvVragen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DisableCheckBoxes();
             if (lvVragen.SelectedItem != null)
             {
                 VraagId = int.Parse(((Vragen)(lvVragen.SelectedItem)).VraagId);
+                VulTekstWhenLVSelectionChanged();
             }
-            VulTekstWhenLVSelectionChanged();
+            
 
         }
         private void UdAantalAntwoorden_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
