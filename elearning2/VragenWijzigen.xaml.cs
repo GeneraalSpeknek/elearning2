@@ -229,6 +229,12 @@ namespace elearning2
             }
             lvVragen.ItemsSource = lstVragen;
         }
+        private void VulTekstWhenLVSelectionChanged()
+        {
+            tbVraagNaam.Text = ((Vragen)(lvVragen.SelectedItem)).VraagNaam;
+            rtbVraag.Document.Blocks.Clear();
+            rtbVraag.AppendText(((Vragen)(lvVragen.SelectedItem)).VraagTekst);
+        }
 
         private void DisableCheckBoxes()
         {
@@ -600,6 +606,8 @@ namespace elearning2
             {
                 VraagId = int.Parse(((Vragen)(lvVragen.SelectedItem)).VraagId);
             }
+            VulTekstWhenLVSelectionChanged();
+
         }
         private void UdAantalAntwoorden_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
