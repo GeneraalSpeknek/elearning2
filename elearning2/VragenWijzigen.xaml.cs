@@ -25,6 +25,7 @@ namespace elearning2
         int KiesLesId = 0;
         int VraagId;
         int VraagIdVulTekst;
+        bool bAllAnswersFilled;
 
         string[] ArrayAntwoorden = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
         struct Vakken
@@ -338,6 +339,75 @@ namespace elearning2
             #endregion
         }
 
+        private void AllAnswersFilled()
+        {
+            bAllAnswersFilled = false;
+
+            string sAantalantwoorden = UdAantalAntwoorden.Value.ToString();
+            int iAantalantwoorden = Convert.ToInt32(sAantalantwoorden);
+            #region antwoordvalidatieswitch
+            switch (iAantalantwoorden)
+            {
+                case 2:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 3:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 4:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 5:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 6:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 7:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 8:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 9:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                case 10:
+                    if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "" && tbAntwoordJ.Text != "")
+                    {
+                        bAllAnswersFilled = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            #endregion
+        }
+
         private void DisableCheckBoxes()
         {
             cbxA.IsEnabled = false;
@@ -579,71 +649,9 @@ namespace elearning2
                         {
                             if (UdAantalAntwoorden.Value != null)
                             {
-                                bool bAllAnswersFilled = false;
-
                                 string sAantalantwoorden = UdAantalAntwoorden.Value.ToString();
                                 int iAantalantwoorden = Convert.ToInt32(sAantalantwoorden);
-                                #region antwoordvalidatieswitch
-                                switch (iAantalantwoorden)
-                                {
-                                    case 2:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 3:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 4:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 5:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 6:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 7:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 8:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 9:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    case 10:
-                                        if (tbAntwoordA.Text != "" && tbAntwoordB.Text != "" && tbAntwoordC.Text != "" && tbAntwoordD.Text != "" && tbAntwoordE.Text != "" && tbAntwoordF.Text != "" && tbAntwoordG.Text != "" && tbAntwoordH.Text != "" && tbAntwoordI.Text != "" && tbAntwoordJ.Text != "")
-                                        {
-                                            bAllAnswersFilled = true;
-                                        }
-                                        break;
-                                    default:
-                                        break;
-                                }
-                                #endregion
+                                AllAnswersFilled();
                                 if (bAllAnswersFilled == true)
                                 {
                                     CheckCheckboxes();
