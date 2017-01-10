@@ -678,11 +678,9 @@ namespace elearning2
                         }
                         else
                         {
-                            MessageBox.Show("Deze naam voor de vraag bestaat al. Kies een andere, unieke, naam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("De naam voor deze vraag is al in gebruik door een andere vraag. Kies een andere, unieke, naam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
-                    //HIER VERDER WERKEN AAN CHECKEN VAN VRAAGNAAM, MOET UNIEKE WAARDE ZIJN OM ID TE KRIJGEN VOOR ANDERE TABEL
-                    
                     else
                     {
                         MessageBox.Show("Het veld waarin het aantal antwoorden moet worden aangegeven mag niet leeg zijn!", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -784,12 +782,20 @@ namespace elearning2
             DataTable dtCheckVraagNaam = new Dbs_Conn().CheckVraagNaam(VraagNaam);
             if (dtCheckVraagNaam.Rows.Count == 0 || Convert.ToInt32(dtCheckVraagNaam.Rows[0]["id"]) == VraagIdVulTekst)
             {
-                new Dbs_Conn().ModifyVragen(sVraagTekst, VraagNaam, VraagIdVulTekst);
-                FillLVVragen();
+                AllAnswersFilled();
+                if(bAllAnswersFilled == true)
+                {
+                  new Dbs_Conn().ModifyVragen(sVraagTekst,      VraagNaam, VraagIdVulTekst);
+                  FillLVVragen();
+                } 
+                else
+                {
+                    MessageBox.Show("Niet alle antwoordvelden zijn ingevuld, vul deze in en probeer het opnieuw.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Deze naam is al in gebruik. Kies een andere, unieke, naam.");
+                MessageBox.Show("De naam voor deze vraag is al in gebruik door een andere vraag. Kies een andere, unieke, naam.", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
