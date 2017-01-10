@@ -311,6 +311,30 @@ namespace elearning2
                 cbxJ.IsChecked = true;
             }
             #endregion
+            #region Set tekst voor antwoordvelden
+            DataTable dtAntwoordTeksten = new Dbs_Conn().GetAntwoordTekst(VraagIdVulTekst);
+            string AntwoordTekstA = dtAntwoordTeksten.Rows[0]["antwoorda"].ToString();
+            string AntwoordTekstB = dtAntwoordTeksten.Rows[0]["antwoordb"].ToString();
+            string AntwoordTekstC = dtAntwoordTeksten.Rows[0]["antwoordc"].ToString();
+            string AntwoordTekstD = dtAntwoordTeksten.Rows[0]["antwoordd"].ToString();
+            string AntwoordTekstE = dtAntwoordTeksten.Rows[0]["antwoorde"].ToString();
+            string AntwoordTekstF = dtAntwoordTeksten.Rows[0]["antwoordf"].ToString();
+            string AntwoordTekstG = dtAntwoordTeksten.Rows[0]["antwoordg"].ToString();
+            string AntwoordTekstH = dtAntwoordTeksten.Rows[0]["antwoordh"].ToString();
+            string AntwoordTekstI = dtAntwoordTeksten.Rows[0]["antwoordi"].ToString();
+            string AntwoordTekstJ = dtAntwoordTeksten.Rows[0]["antwoordj"].ToString();
+
+            tbAntwoordA.Text = AntwoordTekstA;
+            tbAntwoordB.Text = AntwoordTekstB;
+            tbAntwoordC.Text = AntwoordTekstC;
+            tbAntwoordD.Text = AntwoordTekstD;
+            tbAntwoordE.Text = AntwoordTekstE;
+            tbAntwoordF.Text = AntwoordTekstF;
+            tbAntwoordG.Text = AntwoordTekstG;
+            tbAntwoordH.Text = AntwoordTekstH;
+            tbAntwoordI.Text = AntwoordTekstI;
+            tbAntwoordJ.Text = AntwoordTekstJ;
+            #endregion
         }
 
         private void DisableCheckBoxes()
@@ -741,6 +765,11 @@ namespace elearning2
                 new Dbs_Conn().DeleteVraagDBS(VraagId);
                 FillLVVragen();
             }
+        }
+
+        private void btModifyVraag_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

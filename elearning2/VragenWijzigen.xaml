@@ -93,5 +93,6 @@
         <CheckBox x:Name="cbxI" Content="I" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,663,0,0" Foreground="White"/>
         <CheckBox x:Name="cbxJ" Content="J" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,682,0,0" Foreground="White"/>
         <Button x:Name="btVerwijderVraag" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="222,704,0,0" Background="#FFE0381D" Foreground="White" Height="26" Click="btVerwijderVraag_Click" />
+        <Button x:Name="btModifyVraag" Content="Wijzigen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="108,706,0,0" Background="#FFE0381D" Foreground="White" Height="26" Click="btModifyVraag_Click" />
     </Grid>
 </Window>
